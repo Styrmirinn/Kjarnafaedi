@@ -1,0 +1,1485 @@
+<!doctype html>
+<html lang="is">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="img/logo.webp" type="image/webp">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}[hidden]{display:none!important}</style>
+<title>Byrjaðu hefðina</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<script>try{document.documentElement.dataset.mode=localStorage.getItem("kj-mode")||(Date.now()>=Date.parse("2026-11-20T00:00:00Z")?"launch":"pre")}catch(e){document.documentElement.dataset.mode="pre"}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=League+Gothic&family=Work+Sans:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: kn.is header kept as-is, then a pine-night hero with the three boxes fanned like a gift stack;
+   light "snow" product bands alternate with dark pine story bands; the brand red closes the page. */
+:root{
+  color-scheme: light;
+  /* Brand (sampled from the official logo and kn.is) */
+  --red:#B92D1C;          /* logo red */
+  --red-hover:#9E2415;
+  --ink:#0E0E0E;          /* kn.is nav text */
+  --white:#FFFFFF;
+  /* Campaign (sampled from the package artwork) */
+  --pine:#0B2216;         /* night-pine hero ground */
+  --pine-2:#123221;
+  --pine-line:rgba(233,211,160,.18);
+  --gold:#D9B66B;
+  --gold-soft:#EBD6A6;
+  --box-green:#0F3A21;
+  --box-red:#7A120C;
+  --box-navy:#0F2B47;
+  /* Neutrals biased toward pine */
+  --snow:#F3F4F1;
+  --line:#DCDFDA;
+  --muted:#545B56;
+  --muted-on-dark:#B9C2BB;
+
+  --f-display:"League Gothic","Franklin Gothic Extra Condensed","Arial Narrow",Impact,sans-serif;
+  --f-serif:"Fraunces",Georgia,"Times New Roman",serif;
+  --f-body:"Work Sans","Source Sans Pro",system-ui,-apple-system,"Segoe UI",sans-serif;
+
+  --wrap:1280px;
+  --gutter-l:max(16px, env(safe-area-inset-left, 0px));
+  --gutter-r:max(16px, env(safe-area-inset-right, 0px));
+  --ease:cubic-bezier(.2,.7,.2,1);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:140px}
+body{background:var(--white);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--white)}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit}
+button{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:2px}
+.sr{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.wrap{max-width:var(--wrap);margin:0 auto;padding-left:var(--gutter-l);padding-right:var(--gutter-r)}
+@media (min-width:720px){.wrap{--gutter-l:max(32px, env(safe-area-inset-left, 0px));--gutter-r:max(32px, env(safe-area-inset-right, 0px))}}
+.ico{width:20px;height:20px;flex:none;stroke:currentColor;fill:none;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
+
+/* Mode visibility */
+[data-mode="pre"] .launch-only,[data-mode="launch"] .pre-only,:root:not([data-mode]) .launch-only{display:none!important}
+
+/* ---------- Header (kn.is) ---------- */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:50}
+.site-header{background:var(--white);box-shadow:0 1px 0 rgba(0,0,0,.04),0 4px 14px rgba(0,0,0,.06);transition:box-shadow .3s var(--ease)}
+.site-header .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;height:76px;transition:height .3s var(--ease)}
+.scrolled .site-header .wrap{height:62px}
+.brandlogos{display:flex;align-items:center;gap:40px;text-decoration:none}
+.brandlogos .kj{height:49px;width:auto;transition:height .3s var(--ease)}
+.scrolled .brandlogos .kj{height:40px}
+.mainnav{display:flex;align-items:center;gap:6px}
+.mainnav > a,.mainnav .dd > button{font-family:"Work Sans",var(--f-body);font-size:16px;font-weight:400;letter-spacing:.48px;color:var(--ink);text-decoration:none;padding:8px 11px;background:none;border:0;cursor:pointer;display:inline-flex;align-items:center;gap:4px;border-radius:2px;position:relative}
+.mainnav > a::after,.mainnav .dd > button::after{content:"";position:absolute;left:11px;right:11px;bottom:2px;height:2px;background:var(--red);transform:scaleX(0);transform-origin:left;transition:transform .25s var(--ease)}
+.mainnav > a:hover::after,.mainnav .dd:hover > button::after,.mainnav > a[aria-current]::after{transform:scaleX(1)}
+.mainnav > a[aria-current]{color:var(--red)}
+.mainnav .ico{width:14px;height:14px}
+.dd{position:relative}
+.dd-menu{position:absolute;top:100%;left:0;min-width:210px;background:var(--white);box-shadow:0 12px 30px rgba(0,0,0,.12);padding:8px 0;margin:0;list-style:none;opacity:0;visibility:hidden;transform:translateY(6px);transition:all .2s var(--ease)}
+.dd:hover .dd-menu,.dd:focus-within .dd-menu{opacity:1;visibility:visible;transform:none}
+.dd-menu a{display:block;padding:8px 18px;text-decoration:none;font-size:15px;letter-spacing:.3px}
+.dd-menu a:hover{background:var(--snow);color:var(--red)}
+.burger{display:none;background:none;border:0;width:44px;height:44px;align-items:center;justify-content:center;cursor:pointer;margin-right:-8px}
+.burger .ico{width:26px;height:26px}
+.mobile-menu{display:none}
+
+/* Campaign sub-nav */
+.subnav{background:var(--pine);color:var(--gold-soft);border-bottom:1px solid var(--pine-line)}
+.subnav .wrap{display:flex;align-items:center;gap:20px;height:54px}
+.subnav-tag{display:flex;align-items:center;gap:8px;font-family:var(--f-serif);font-style:italic;font-size:15px;color:var(--gold);white-space:nowrap}
+.subnav-tag svg{width:12px;height:12px;fill:var(--gold)}
+.subnav-links{display:flex;gap:4px;flex:1;min-width:0}
+.subnav-links a{color:#E6E9E4;text-decoration:none;font-size:14px;font-weight:500;letter-spacing:.3px;padding:7px 12px;border-radius:999px;white-space:nowrap;transition:background .2s,color .2s}
+.subnav-links a:hover{background:rgba(255,255,255,.08)}
+.subnav-links a.on{background:rgba(217,182,107,.16);color:var(--gold-soft)}
+.subnav-actions{display:flex;align-items:center;gap:10px}
+.cartbtn{position:relative;width:40px;height:40px;border-radius:999px;border:1px solid var(--pine-line);background:transparent;color:var(--gold-soft);display:inline-flex;align-items:center;justify-content:center;cursor:pointer}
+.cartbtn:hover{background:rgba(255,255,255,.08)}
+.cartcount{position:absolute;top:-4px;right:-4px;min-width:19px;height:19px;padding:0 5px;border-radius:999px;background:var(--red);color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;font-variant-numeric:tabular-nums}
+.cartcount[data-n="0"]{display:none}
+.cartbtn.bump{animation:bump .45s var(--ease)}
+@keyframes bump{40%{transform:scale(1.18)}}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 24px;border-radius:2px;font-family:var(--f-body);font-weight:600;font-size:15px;letter-spacing:.4px;text-decoration:none;border:1.5px solid transparent;cursor:pointer;transition:background .2s,color .2s,border-color .2s,transform .2s var(--ease);white-space:nowrap}
+.btn .ico{width:18px;height:18px;transition:transform .25s var(--ease)}
+.btn:hover .ico.arr{transform:translateX(4px)}
+.btn-red{background:var(--red);color:#fff}
+.btn-red:hover{background:var(--red-hover)}
+.btn-sm{min-height:40px;padding:0 16px;font-size:14px}
+.btn-ghost-light{background:transparent;color:var(--gold-soft);border-color:rgba(235,214,166,.45)}
+.btn-ghost-light:hover{border-color:var(--gold-soft);background:rgba(235,214,166,.08)}
+.btn-ink{background:var(--ink);color:#fff}
+.btn-ink:hover{background:#2a2a2a}
+.btn-line{background:transparent;color:var(--ink);border-color:var(--ink)}
+.btn-line:hover{background:var(--ink);color:#fff}
+.btn-white{background:#fff;color:var(--red)}
+.btn-white:hover{background:var(--gold-soft);color:var(--ink)}
+.btn[disabled],.btn[aria-disabled="true"]{opacity:.55;cursor:not-allowed}
+
+/* ---------- Hero ---------- */
+.hero{position:relative;background:var(--pine);color:#F4F1EA;overflow:hidden;isolation:isolate}
+.hero::before{content:"";position:absolute;inset:0;z-index:-2;background:
+  radial-gradient(60% 70% at 72% 52%, rgba(217,182,107,.20), transparent 62%),
+  radial-gradient(50% 60% at 10% 100%, rgba(15,58,33,.9), transparent 70%),
+  linear-gradient(180deg,#0B2216 0%,#0A1E14 100%)}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;opacity:.35;background-image:radial-gradient(rgba(255,255,255,.07) 1px,transparent 1.2px);background-size:22px 22px;mask-image:linear-gradient(180deg,#000,transparent 85%);-webkit-mask-image:linear-gradient(180deg,#000,transparent 85%)}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:40px;align-items:center;padding-block:72px 84px}
+.stars{position:absolute;inset:0;z-index:-1;pointer-events:none}
+.stars svg{position:absolute;fill:var(--gold);opacity:.75;animation:twinkle 4s ease-in-out infinite}
+@keyframes twinkle{0%,100%{opacity:.25;transform:scale(.8)}50%{opacity:.9;transform:scale(1)}}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:13px;font-weight:600;letter-spacing:1.6px;text-transform:uppercase}
+.hero .eyebrow{color:var(--gold);padding:7px 14px 7px 10px;border:1px solid rgba(217,182,107,.35);border-radius:999px;background:rgba(217,182,107,.06)}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 0 rgba(217,182,107,.6);animation:pulse 2.2s infinite}
+.launch-only.dot,.hero .eyebrow .dot.live{background:#7FD49B;box-shadow:0 0 0 0 rgba(127,212,155,.6)}
+@keyframes pulse{70%{box-shadow:0 0 0 9px rgba(217,182,107,0)}100%{box-shadow:0 0 0 0 rgba(217,182,107,0)}}
+.kicker{font-family:var(--f-serif);font-style:italic;font-weight:500;font-size:clamp(18px,2vw,22px);color:var(--gold-soft);margin:26px 0 6px}
+.hero h1{font-family:var(--f-display);font-weight:400;text-transform:uppercase;font-size:clamp(64px,10.5vw,148px);line-height:.86;letter-spacing:.5px;margin:0;text-wrap:balance}
+.hero h1 .l{display:block}
+.hero h1 em{font-style:normal;color:var(--gold)}
+.hero-sub{font-size:clamp(17px,1.5vw,19px);line-height:1.55;color:#D9DED9;max-width:30em;margin:26px 0 30px}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:12px}
+.hero-meta{display:flex;flex-wrap:wrap;gap:8px 22px;margin:30px 0 0;padding:0;list-style:none;font-size:14px;color:var(--muted-on-dark)}
+.hero-meta li{display:flex;align-items:center;gap:8px}
+.hero-meta .ico{width:17px;height:17px;color:var(--gold)}
+
+.countdown{margin-top:34px;padding-top:22px;border-top:1px solid var(--pine-line);max-width:520px}
+.countdown p{margin:0 0 12px;font-size:13px;letter-spacing:1.4px;text-transform:uppercase;color:var(--gold);font-weight:600}
+.cd{display:flex;gap:10px}
+.cd div{flex:1;min-width:0;text-align:center;padding:12px 4px 10px;border:1px solid var(--pine-line);background:rgba(255,255,255,.03)}
+.cd b{display:block;font-family:var(--f-display);font-weight:400;font-size:clamp(34px,4vw,46px);line-height:1;color:#fff;font-variant-numeric:tabular-nums}
+.cd span{font-size:12px;color:var(--muted-on-dark);letter-spacing:.5px}
+.launch-strip{margin-top:34px;padding:16px 18px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;background:rgba(217,182,107,.1);border:1px solid rgba(217,182,107,.3);max-width:540px}
+.launch-strip strong{font-family:var(--f-display);font-weight:400;font-size:30px;line-height:1;color:var(--gold-soft);letter-spacing:.5px}
+.launch-strip span{font-size:14px;color:#D9DED9}
+
+.stage{position:relative;width:100%;max-width:600px;margin:0 auto;aspect-ratio:10/9;container-type:inline-size}
+.halo{position:absolute;left:50%;top:52%;width:86%;aspect-ratio:1;max-width:100%;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,rgba(217,182,107,.32),rgba(217,182,107,.08) 45%,transparent 68%)}
+.ring{position:absolute;left:50%;top:52%;width:74%;aspect-ratio:1;max-width:100%;transform:translate(-50%,-50%);border-radius:50%;border:1px dashed rgba(217,182,107,.28);animation:spin 80s linear infinite}
+@keyframes spin{to{transform:translate(-50%,-50%) rotate(360deg)}}
+.pkg{position:absolute;bottom:10%;width:36%;filter:drop-shadow(0 30px 34px rgba(0,0,0,.55)) drop-shadow(0 6px 10px rgba(0,0,0,.35));transition:transform .5s var(--ease)}
+.pkg img{width:100%;height:auto}
+.pkg-a{left:1%;transform:rotate(-9deg) translateY(8px);z-index:1}
+.pkg-b{left:30%;bottom:14%;width:40%;z-index:3}
+.pkg-c{right:1%;transform:rotate(8deg) translateY(10px);z-index:2}
+.pkg .bob{animation:bob 6s ease-in-out infinite}
+.pkg-a .bob{animation-delay:-2s}.pkg-c .bob{animation-delay:-4s}
+@keyframes bob{50%{transform:translateY(-10px)}}
+.stage:hover .pkg-a{transform:rotate(-12deg) translate(-10px,0)}
+.stage:hover .pkg-c{transform:rotate(11deg) translate(10px,0)}
+.table-line{position:absolute;left:6%;right:6%;bottom:8%;height:1px;background:linear-gradient(90deg,transparent,rgba(217,182,107,.5),transparent)}
+.stage-note{position:absolute;left:0;right:0;bottom:0;text-align:center;font-family:var(--f-serif);font-style:italic;color:var(--gold-soft);font-size:clamp(14px,3cqw,17px)}
+.stage .tag{position:absolute;z-index:4;top:3%;right:6%;width:20%;aspect-ratio:1;border-radius:50%;background:var(--red);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;transform:rotate(10deg);box-shadow:0 14px 30px rgba(0,0,0,.35)}
+.stage .tag::before{content:"";position:absolute;inset:6px;border-radius:50%;border:1px dashed rgba(255,255,255,.55)}
+.stage .tag b{font-family:var(--f-display);font-weight:400;font-size:7cqw;line-height:.9}
+.stage .tag span{font-size:max(8px,1.8cqw);letter-spacing:.12em;text-transform:uppercase;font-weight:600}
+
+/* ---------- Section shells ---------- */
+section{position:relative}
+.band{padding-block:clamp(72px,9vw,120px)}
+.band-snow{background:var(--snow)}
+.band-white{background:var(--white)}
+.band-pine{background:var(--pine);color:#EEF0EC}
+.sec-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.8fr);gap:24px 64px;align-items:end;margin-bottom:clamp(40px,5vw,64px)}
+.sec-head .eyebrow{color:var(--red);margin-bottom:14px}
+.band-pine .sec-head .eyebrow{color:var(--gold)}
+h2{font-family:var(--f-display);font-weight:400;text-transform:uppercase;font-size:clamp(46px,6.4vw,88px);line-height:.92;letter-spacing:.4px;margin:0;text-wrap:balance}
+.sec-head p{margin:0;font-size:17px;color:var(--muted);max-width:34em}
+.band-pine .sec-head p{color:var(--muted-on-dark)}
+
+/* ---------- Product cards ---------- */
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
+.card{background:var(--white);display:flex;flex-direction:column;min-width:0;box-shadow:0 1px 0 var(--line),0 18px 40px -26px rgba(11,34,22,.35);transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
+.card:hover{transform:translateY(-6px);box-shadow:0 1px 0 var(--line),0 34px 60px -30px rgba(11,34,22,.5)}
+.card-stage{position:relative;height:340px;display:flex;align-items:flex-end;justify-content:center;overflow:hidden;cursor:pointer;border:0;padding:0;width:100%}
+.card-stage::before{content:"";position:absolute;inset:0;background:radial-gradient(70% 60% at 50% 60%,rgba(255,255,255,.16),transparent 70%)}
+.card-stage::after{content:"";position:absolute;left:0;right:0;bottom:0;height:34%;background:linear-gradient(180deg,transparent,rgba(0,0,0,.28))}
+.card-stage img{position:relative;z-index:1;height:300px;width:auto;max-width:86%;object-fit:contain;margin-bottom:-6px;filter:drop-shadow(0 22px 22px rgba(0,0,0,.45));transition:transform .5s var(--ease)}
+.card:hover .card-stage img{transform:translateY(-8px) rotate(-1.5deg)}
+.card-stage .sp{position:absolute;fill:var(--gold);opacity:.55}
+.badge{position:absolute;z-index:2;top:16px;left:16px;display:inline-flex;align-items:center;gap:7px;padding:6px 11px;font-size:12px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;background:rgba(0,0,0,.42);color:var(--gold-soft);border:1px solid rgba(235,214,166,.4);backdrop-filter:blur(4px)}
+.badge.live{background:#F4F1EA;color:var(--box-green);border-color:transparent}
+.badge.live i{width:7px;height:7px;border-radius:50%;background:#2E9B57}
+.for4{position:absolute;z-index:2;top:16px;right:16px;display:inline-flex;align-items:center;gap:6px;padding:6px 10px;font-size:12px;font-weight:700;letter-spacing:.6px;background:var(--white);color:var(--ink)}
+.for4 .ico{width:15px;height:15px}
+.card-body{padding:26px 26px 28px;display:flex;flex-direction:column;gap:14px;flex:1}
+.card-type{font-size:12px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:var(--red);margin:0}
+.card-name{font-family:var(--f-serif);font-weight:700;font-size:36px;line-height:1;margin:0;letter-spacing:-.3px}
+.card-desc{margin:0;color:var(--muted);font-size:15.5px;line-height:1.55}
+.incl{border-top:1px solid var(--line);padding-top:14px}
+.incl h4{margin:0 0 8px;font-size:12px;letter-spacing:1.4px;text-transform:uppercase;color:var(--ink);font-weight:700}
+.incl ul{margin:0;padding:0;list-style:none;display:grid;gap:5px;font-size:14.5px}
+.incl li{display:flex;gap:9px;align-items:flex-start}
+.incl li .ico{width:16px;height:16px;color:var(--red);margin-top:4px}
+.incl .more{background:none;border:0;padding:4px 0 0;color:var(--ink);font-weight:600;font-size:14px;text-decoration:underline;text-underline-offset:3px;cursor:pointer;text-align:left}
+.price-row{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-top:auto;padding-top:16px;border-top:1px solid var(--line)}
+.price{font-family:var(--f-display);font-weight:400;font-size:42px;line-height:1;letter-spacing:.3px;font-variant-numeric:tabular-nums}
+.price-sub{font-size:13px;color:var(--muted);text-align:right}
+.price-tbd{font-size:14px;color:var(--muted);display:flex;align-items:center;gap:8px}
+.price-tbd .ico{width:17px;height:17px}
+.card-actions{display:grid;grid-template-columns:1fr auto;gap:10px}
+.card-actions .btn{padding:0 18px}
+.vidlink{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;color:var(--ink);text-decoration:none;align-self:flex-start;padding:4px 0}
+.vidlink .pi{width:26px;height:26px;border-radius:50%;background:var(--snow);display:flex;align-items:center;justify-content:center;transition:background .2s}
+.vidlink .pi .ico{width:12px;height:12px;fill:var(--ink);stroke:none}
+.vidlink:hover .pi{background:var(--gold-soft)}
+.vidlink:hover span{text-decoration:underline;text-underline-offset:3px}
+/* Text selection in each package's own color */
+.card[data-pkg="stufur"]::selection,.card[data-pkg="stufur"] ::selection{background:#0F3A21;color:#fff}
+.card[data-pkg="ketkrokur"]::selection,.card[data-pkg="ketkrokur"] ::selection{background:#7A120C;color:#fff}
+.card[data-pkg="leppaludi"]::selection,.card[data-pkg="leppaludi"] ::selection{background:#0F2B47;color:#fff}
+
+/* ---------- How it works ---------- */
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;position:relative;margin:0;padding:0;list-style:none}
+.steps::before{content:"";position:absolute;left:calc(16.66% + 30px);right:calc(16.66% + 30px);top:38px;border-top:2px dashed var(--line)}
+.steps::after{content:"";position:absolute;left:calc(16.66% + 30px);top:37px;height:4px;background:var(--red);width:calc(var(--p,0) * (33.33% - 30px));transition:width .6s var(--ease)}
+.step{position:relative;text-align:center;padding:0 12px}
+.step button{all:unset;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:18px;width:100%}
+.step button:focus-visible{outline:3px solid var(--gold);outline-offset:6px}
+.step-ic{position:relative;z-index:1;width:78px;height:78px;border-radius:50%;background:var(--white);border:2px solid var(--line);display:flex;align-items:center;justify-content:center;transition:all .35s var(--ease)}
+.step-ic .ico{width:32px;height:32px;color:var(--ink)}
+.step-n{position:absolute;top:-6px;right:-6px;width:28px;height:28px;border-radius:50%;background:var(--ink);color:#fff;font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center}
+.step.on .step-ic{background:var(--red);border-color:var(--red);transform:scale(1.06)}
+.step.on .step-ic .ico{color:#fff}
+.step.on .step-n{background:var(--gold);color:var(--ink)}
+.step .sth{display:block;margin:0;font-family:var(--f-display);font-weight:400;text-transform:uppercase;font-size:36px;line-height:1;letter-spacing:.4px}
+.step .stp{display:block;margin:0;color:var(--muted);max-width:22em;margin-inline:auto}
+.step .hint{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:var(--red);opacity:0;transform:translateY(4px);transition:all .3s var(--ease)}
+.step.on .hint{opacity:1;transform:none}
+.step .hint .ico{width:15px;height:15px}
+
+/* ---------- Videos ---------- */
+.videos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.vcard{background:transparent;border:0;padding:0;text-align:left;cursor:pointer;color:inherit;display:flex;flex-direction:column;gap:16px;min-width:0}
+.thumb{position:relative;aspect-ratio:16/10;max-width:100%;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.thumb img{height:88%;width:auto;filter:drop-shadow(0 14px 18px rgba(0,0,0,.5));transition:transform .5s var(--ease)}
+.thumb::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,.55))}
+.vcard:hover .thumb img{transform:scale(1.05)}
+.playbtn{position:absolute;z-index:2;width:66px;height:66px;border-radius:50%;background:rgba(255,255,255,.95);display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(0,0,0,.35);transition:transform .3s var(--ease)}
+.playbtn .ico{width:24px;height:24px;fill:var(--red);stroke:none;margin-left:4px}
+.vcard:hover .playbtn{transform:scale(1.1)}
+.thumb .soon{position:absolute;z-index:3;inset:auto 12px 12px auto;background:rgba(0,0,0,.6);color:var(--gold-soft);font-size:12px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;padding:6px 10px}
+.thumb .dur{position:absolute;z-index:3;left:12px;bottom:12px;color:#fff;font-size:12px;font-weight:600;display:flex;align-items:center;gap:6px}
+.thumb .dur .ico{width:14px;height:14px}
+.vcard .vt{display:block;font-size:19px;font-weight:600;line-height:1.3}
+.vcard .vs{display:block;margin:-8px 0 0;color:var(--muted-on-dark);font-size:15px}
+[data-mode="pre"] .vcard .playbtn{background:rgba(255,255,255,.7)}
+
+.qr-block{margin-top:clamp(56px,7vw,88px);display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:48px;align-items:center;padding:clamp(28px,4vw,48px);border:1px solid var(--pine-line);background:linear-gradient(135deg,rgba(255,255,255,.04),rgba(255,255,255,0))}
+.qr-block h3{font-family:var(--f-display);font-weight:400;text-transform:uppercase;font-size:clamp(38px,4.4vw,58px);line-height:.95;margin:0 0 14px;letter-spacing:.4px}
+.qr-block > div > p{margin:0 0 22px;color:var(--muted-on-dark)}
+.qr-steps{margin:0;padding:0;list-style:none;display:grid;gap:12px}
+.qr-steps li{display:flex;gap:14px;align-items:center;font-size:15px}
+.qr-steps .n{width:30px;height:30px;flex:none;border-radius:50%;border:1px solid var(--gold);color:var(--gold);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700}
+.qr-visual{position:relative;display:flex;align-items:center;justify-content:center;gap:clamp(12px,3vw,36px);min-height:420px;padding-top:96px}
+.qr-box{position:relative;width:min(250px,42%);flex:none}
+.qr-box img{width:100%;filter:drop-shadow(0 20px 24px rgba(0,0,0,.5))}
+.qr-ring{position:absolute;right:-4%;bottom:5%;width:46%;aspect-ratio:1;border-radius:50%;border:2px solid var(--gold);box-shadow:0 0 0 6px rgba(217,182,107,.18);animation:ringpulse 2.4s ease-in-out infinite}
+@keyframes ringpulse{50%{box-shadow:0 0 0 14px rgba(217,182,107,0)}}
+.qr-arrow{width:min(90px,14%);color:var(--gold);flex:none}
+.qr-arrow svg{width:100%;height:auto;stroke:currentColor;fill:none;stroke-width:1.5;stroke-dasharray:5 6;animation:dash 1.2s linear infinite}
+@keyframes dash{to{stroke-dashoffset:-22}}
+.phone{position:relative;width:min(220px,44%);aspect-ratio:9/18.5;max-width:100%;border-radius:30px;background:#050B08;padding:10px;box-shadow:0 30px 50px rgba(0,0,0,.5),inset 0 0 0 1.5px #2b332e}
+.screen{height:100%;border-radius:22px;overflow:hidden;background:#F7F7F4;color:var(--ink);display:flex;flex-direction:column}
+.screen .url{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin:12px 12px 8px;padding:6px 10px;border-radius:999px;background:#E7E9E5;font-size:10px;color:#4b524d;display:flex;align-items:center;gap:6px}
+.screen .url .ico{width:11px;height:11px}
+.screen .vid{position:relative;margin:0 10px;aspect-ratio:16/10;background:var(--box-red);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.screen .vid img{height:92%;width:auto}
+.screen .vid .playbtn{width:34px;height:34px}
+.screen .vid .playbtn .ico{width:13px;height:13px;margin-left:2px}
+.screen .bar{height:3px;margin:0 10px;background:#ddd;position:relative}
+.screen .bar i{position:absolute;left:0;top:0;bottom:0;width:38%;background:var(--red);animation:play 6s linear infinite}
+@keyframes play{from{width:4%}to{width:96%}}
+.screen h5{margin:10px 12px 4px;font-size:12px;line-height:1.25}
+.screen.yt{background:#fff;color:#0f0f0f;font-family:Roboto,"Helvetica Neue",Arial,sans-serif}
+.screen.yt .url{margin-bottom:6px}
+.yt-top{display:flex;align-items:center;justify-content:space-between;margin:0 12px 8px}
+.yt-logo{display:flex;align-items:center;gap:4px;font-size:12px;letter-spacing:-.4px}
+.yt-logo svg{width:20px;height:14px}
+.yt-top .ico{width:13px;height:13px}
+.screen.yt .vid{margin:0;background:#000}
+.screen.yt .vid img{height:96%}
+.yt-play{position:absolute;width:40px;height:28px;filter:drop-shadow(0 3px 6px rgba(0,0,0,.4))}
+.yt-play svg{width:100%;height:100%;display:block}
+.yt-time{position:absolute;right:6px;bottom:6px;background:rgba(0,0,0,.8);color:#fff;font-size:8.5px;font-weight:600;padding:1px 4px;border-radius:3px}
+.screen.yt .bar{margin:0;background:#e5e5e5}
+.screen.yt .bar i{background:#FF0000}
+.screen.yt h5{font-size:11.5px;font-weight:600;margin:10px 12px 8px}
+.yt-ch{display:flex;align-items:center;gap:6px;margin:0 12px 8px;font-size:10px}
+.yt-av{width:22px;height:22px;border-radius:50%;background:#fff;border:1px solid #e5e5e5;display:flex;align-items:center;justify-content:center;overflow:hidden;flex:none}
+.yt-av img{width:90%;height:auto}
+.yt-name{font-weight:600;flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.yt-sub{background:#0f0f0f;color:#fff;font-size:8.5px;font-weight:600;padding:4px 8px;border-radius:999px;white-space:nowrap}
+.yt-acts{display:flex;gap:5px;margin:0 12px;flex-wrap:wrap}
+.yt-acts span{display:flex;align-items:center;gap:3px;background:#f2f2f2;border-radius:999px;padding:4px 7px;font-size:8.5px;font-weight:500}
+.yt-acts .ico{width:10px;height:10px}
+.qr-code{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:58px;height:58px;padding:5px;background:#F4E9CF;border-radius:6px;box-shadow:0 6px 16px rgba(0,0,0,.4)}
+.qr-code svg{width:100%;height:100%;display:block}
+.qr-float{position:absolute;left:0;top:0;display:flex;align-items:center;gap:12px;font-size:13.5px;line-height:1.35;color:var(--gold-soft)}
+.qr-float .qr-code{position:relative;left:auto;top:auto;transform:none;width:84px;height:84px;padding:7px}
+
+/* ---------- Why ---------- */
+.why{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(40px,6vw,96px);align-items:start}
+.why h2 .r{color:var(--red);display:block}
+.why-lead{margin:28px 0 0;font-size:17px;color:var(--muted);max-width:28em}
+.why-img{margin-top:36px;display:flex;align-items:flex-end;gap:10px}
+.why-img img{width:31%;filter:drop-shadow(0 16px 18px rgba(11,34,22,.28))}
+.why-img img:nth-child(2){transform:translateY(-14px)}
+.points{margin:0;padding:0;list-style:none;border-top:1px solid var(--ink)}
+.points li{display:grid;grid-template-columns:52px minmax(0,1fr);gap:18px;padding:22px 0;border-bottom:1px solid var(--line);transition:padding .3s var(--ease)}
+.points li:hover{padding-left:8px}
+.points .pic{width:52px;height:52px;border-radius:50%;background:var(--snow);display:flex;align-items:center;justify-content:center;transition:background .3s}
+.points li:hover .pic{background:var(--red);color:#fff}
+.points .pic .ico{width:24px;height:24px}
+.points h3{margin:2px 0 4px;font-size:19px;font-weight:600}
+.points p{margin:0;color:var(--muted);font-size:15.5px}
+
+/* ---------- Newsletter ---------- */
+.news{background:var(--box-green);color:#F1EFE8;position:relative;overflow:hidden}
+.news .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:center;padding-block:clamp(56px,7vw,88px)}
+.news h2{font-size:clamp(42px,5.2vw,70px)}
+.news p{color:#C9D3CB;margin:18px 0 0;max-width:30em}
+.news form{display:grid;gap:16px}
+.field label,.fieldset legend{display:block;font-size:13px;font-weight:600;letter-spacing:.6px;margin-bottom:8px;color:var(--gold-soft)}
+.fieldset{border:0;margin:0;padding:0}
+.inrow{display:flex;gap:10px}
+.inrow input{flex:1;min-width:0;height:52px;padding:0 16px;border:1.5px solid rgba(235,214,166,.4);background:rgba(0,0,0,.18);color:#fff;font:inherit;font-size:16px;border-radius:2px}
+.inrow input::placeholder{color:#9DAA9F}
+.inrow input:focus{outline:none;border-color:var(--gold)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{min-height:40px;padding:0 14px;border-radius:999px;border:1.5px solid rgba(235,214,166,.4);background:transparent;color:#F1EFE8;font-size:14px;font-weight:500;cursor:pointer;display:inline-flex;align-items:center;gap:6px}
+.chip .ico{width:14px;height:14px;display:none}
+.chip[aria-pressed="true"]{background:var(--gold-soft);color:var(--ink);border-color:var(--gold-soft)}
+.chip[aria-pressed="true"] .ico{display:block}
+.formnote{font-size:12.5px;color:#9FB0A3;margin:0}
+.ok{display:flex;gap:14px;align-items:flex-start;padding:20px;background:rgba(235,214,166,.12);border:1px solid rgba(235,214,166,.4)}
+.ok .ico{width:28px;height:28px;color:var(--gold-soft);flex:none}
+.ok h3{margin:0 0 4px;font-size:19px}
+.ok p{margin:0;font-size:14.5px}
+.err{color:#FFB4A8;font-size:13.5px;margin:6px 0 0}
+.mini-news{background:var(--snow);border-top:1px solid var(--line)}
+.mini-news .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px 32px;flex-wrap:wrap;padding-block:28px}
+.mini-news h3{margin:0;font-size:18px;font-weight:600}
+.mini-news p{margin:2px 0 0;color:var(--muted);font-size:14.5px}
+.mini-news form{display:flex;gap:10px;flex:1;max-width:460px;min-width:min(100%,280px)}
+.mini-news input{flex:1;min-width:0;height:48px;padding:0 14px;border:1.5px solid var(--line);background:#fff;font:inherit;border-radius:2px}
+.mini-news input:focus{outline:none;border-color:var(--ink)}
+
+/* ---------- Where to buy ---------- */
+.buy{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px}
+.buy-panel{background:var(--white);padding:clamp(26px,3.5vw,44px);display:flex;flex-direction:column;gap:18px;min-width:0;border-top:4px solid var(--ink)}
+.buy-panel.p1{border-top-color:var(--red)}
+.buy-head{display:flex;gap:16px;align-items:center}
+.buy-ic{width:56px;height:56px;border-radius:50%;background:var(--snow);display:flex;align-items:center;justify-content:center;flex:none}
+.buy-ic .ico{width:26px;height:26px}
+.buy-panel h3{margin:0;font-family:var(--f-display);font-weight:400;text-transform:uppercase;font-size:40px;line-height:1;letter-spacing:.3px}
+.buy-panel > p{margin:0;color:var(--muted)}
+.feat{margin:0;padding:0;list-style:none;display:grid;gap:10px}
+.feat li{display:flex;align-items:flex-start;gap:12px;font-size:15.5px}
+.feat li .ico{width:18px;height:18px;color:var(--red);flex:none;margin-top:3px}
+.pill{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:3px 8px;background:var(--gold-soft);color:var(--ink)}
+.buy-panel .btn{align-self:flex-start;margin-top:auto}
+.regions{display:flex;flex-wrap:wrap;gap:6px}
+.regions button{min-height:36px;padding:0 12px;border:1.5px solid var(--line);background:#fff;font-size:13.5px;font-weight:500;cursor:pointer;border-radius:999px}
+.regions button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+.stores{margin:0;padding:0;list-style:none;display:grid;gap:8px}
+.stores li{display:flex;justify-content:space-between;gap:4px 12px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line);font-size:15px;flex-wrap:wrap}
+.stores li:last-child{border-bottom:0}
+.stores li b{font-weight:600}
+.stores li span{color:var(--muted);font-size:14px;display:inline-flex;align-items:center;gap:6px}
+.stores li span .ico{width:15px;height:15px;color:var(--red)}
+.ph{color:var(--muted);font-style:italic}
+.pickup{margin-top:28px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+.pickup div{background:var(--white);padding:22px 24px;display:flex;gap:14px;align-items:flex-start;min-width:0}
+.pickup .ico{width:24px;height:24px;color:var(--red);margin-top:2px}
+.pickup b{display:block;font-size:13px;letter-spacing:1px;text-transform:uppercase}
+.pickup span{font-size:15px;color:var(--muted)}
+.footnote{margin:18px 0 0;font-size:13px;color:var(--muted)}
+
+/* ---------- Final CTA ---------- */
+.final{background:var(--red);color:#fff;overflow:hidden;position:relative;isolation:isolate}
+.final::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(55% 80% at 80% 50%,rgba(255,255,255,.14),transparent 70%)}
+.final .wrap{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:40px;align-items:center;padding-block:clamp(72px,9vw,120px)}
+.final h2{font-size:clamp(76px,12vw,176px);line-height:.84}
+.final h2 span{display:block}
+.final h2 span:last-child{color:var(--gold-soft)}
+.final p{font-size:19px;max-width:28em;margin:24px 0 30px;color:#FBE9E6}
+.final .kick{font-family:var(--f-serif);font-style:italic;font-size:20px;color:#fff;margin:0 0 14px;display:block}
+.final-boxes{position:relative;width:100%;max-width:520px;aspect-ratio:10/8}
+.final-boxes img{position:absolute;bottom:4%;width:40%;filter:drop-shadow(0 26px 26px rgba(70,8,2,.5))}
+.final-boxes img:nth-child(1){left:0;transform:rotate(-7deg)}
+.final-boxes img:nth-child(2){left:29%;bottom:9%;width:42%;z-index:2}
+.final-boxes img:nth-child(3){right:0;transform:rotate(7deg)}
+.final .stars svg{fill:#fff}
+
+/* ---------- Footer ---------- */
+footer{background:var(--white);border-top:1px solid var(--line)}
+.foot{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr) minmax(0,1fr);gap:40px;padding-block:56px 40px}
+.foot .logos{display:flex;align-items:center;gap:28px;flex-wrap:wrap}
+.foot .logos img:first-child{height:56px;width:auto}
+.foot .logos img:last-child{height:28px;width:auto}
+.foot h4{margin:0 0 14px;font-size:13px;letter-spacing:1.4px;text-transform:uppercase}
+.foot ul{margin:0;padding:0;list-style:none;display:grid;gap:8px;font-size:15px}
+.foot a{text-decoration:none}
+.foot a:hover{color:var(--red);text-decoration:underline;text-underline-offset:3px}
+.foot address{font-style:normal;color:var(--muted);font-size:15px;line-height:1.7;margin-top:18px}
+.concept{border-top:1px solid var(--line);padding-block:18px;display:flex;justify-content:space-between;gap:10px 24px;flex-wrap:wrap;font-size:13.5px;color:var(--muted)}
+.concept strong{color:var(--ink);font-weight:600;display:inline-flex;align-items:center;gap:8px}
+.concept strong i{width:8px;height:8px;background:var(--gold);transform:rotate(45deg)}
+
+/* ---------- Presentation mode switch ---------- */
+.mode{position:fixed;z-index:70;left:max(16px, calc(env(safe-area-inset-left,0px) + 16px));bottom:calc(env(safe-area-inset-bottom,0px) + 16px);display:flex;align-items:center;gap:6px;padding:6px;background:rgba(14,14,14,.92);color:#fff;border-radius:999px;box-shadow:0 12px 30px rgba(0,0,0,.35);backdrop-filter:blur(8px)}
+.mode .lbl{font-size:11px;letter-spacing:1.2px;text-transform:uppercase;color:#A9AFAB;padding:0 8px 0 10px;display:flex;align-items:center;gap:6px}
+.mode .lbl .ico{width:14px;height:14px}
+.mode button{min-height:36px;padding:0 14px;border-radius:999px;border:0;background:transparent;color:#E3E5E2;font-size:13px;font-weight:600;cursor:pointer;white-space:nowrap}
+.mode button[aria-pressed="true"]{background:var(--gold-soft);color:var(--ink)}
+.mode button:hover:not([aria-pressed="true"]){background:rgba(255,255,255,.1)}
+
+/* ---------- Dialogs, drawer, toast ---------- */
+dialog{border:0;padding:0;max-width:min(1040px,calc(100vw - 32px));width:100%;max-height:calc(100dvh - 32px);background:var(--white);color:var(--ink);box-shadow:0 40px 80px rgba(0,0,0,.4)}
+dialog::backdrop{background:rgba(6,16,10,.72);backdrop-filter:blur(3px)}
+dialog[open]{animation:pop .35s var(--ease)}
+@keyframes pop{from{opacity:0;transform:translateY(16px) scale(.98)}}
+.dlg-close{position:absolute;top:12px;right:12px;z-index:5;width:44px;height:44px;border-radius:50%;border:0;background:rgba(255,255,255,.92);display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,.15)}
+.dlg-close:hover{background:var(--snow)}
+.pd{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);max-height:calc(100dvh - 32px)}
+.pd-img{--c:#0F3A21;position:relative;overflow:hidden;isolation:isolate;display:flex;align-items:center;justify-content:center;padding:56px 24px 64px;min-height:300px;
+  background:
+    radial-gradient(52% 42% at 50% 46%, rgba(255,226,160,.30), transparent 72%),
+    radial-gradient(130% 95% at 50% 38%, transparent 42%, rgba(0,0,0,.55) 100%),
+    linear-gradient(180deg, color-mix(in srgb, var(--c) 82%, #fff) 0%, var(--c) 55%, color-mix(in srgb, var(--c) 70%, #000) 100%);
+  background-color:var(--c)}
+.pd-img::before{content:"";position:absolute;inset:0;z-index:-1;opacity:.5;background-image:radial-gradient(rgba(255,240,200,.16) 1px,transparent 1.3px);background-size:18px 18px;-webkit-mask-image:radial-gradient(70% 60% at 50% 45%,#000,transparent);mask-image:radial-gradient(70% 60% at 50% 45%,#000,transparent)}
+.pd-img::after{content:"";position:absolute;left:18%;right:18%;bottom:38px;height:26px;border-radius:50%;background:radial-gradient(closest-side,rgba(0,0,0,.55),transparent);z-index:0}
+.pd-ring{position:absolute;left:50%;top:46%;width:min(78%,420px);aspect-ratio:1;border-radius:50%;transform:translate(-50%,-50%);border:1px solid rgba(235,214,166,.35);z-index:0}
+.pd-ring::before{content:"";position:absolute;inset:14px;border-radius:50%;border:1px dashed rgba(235,214,166,.4);animation:spin 90s linear infinite}
+.pd-ring::after{content:"";position:absolute;inset:-28px;border-radius:50%;border:1px solid rgba(235,214,166,.12)}
+.pd-word{position:absolute;left:0;right:0;bottom:-0.18em;text-align:center;font-family:var(--f-serif);font-style:italic;font-weight:600;font-size:clamp(72px,11vw,128px);line-height:1;color:rgba(235,214,166,.10);white-space:nowrap;pointer-events:none;z-index:0;letter-spacing:-.02em}
+.pd-img .sp{position:absolute;fill:var(--gold);opacity:.8;animation:twinkle 4s ease-in-out infinite;z-index:0}
+.pd-img .pd-float{position:relative;z-index:1;animation:bob 6s ease-in-out infinite}
+.pd-img img{max-height:400px;width:auto;filter:drop-shadow(0 28px 26px rgba(0,0,0,.5)) drop-shadow(0 4px 8px rgba(0,0,0,.3))}
+.pd-chip{position:absolute;z-index:2;top:16px;left:16px;display:inline-flex;align-items:center;gap:6px;padding:6px 11px;font-size:12px;font-weight:700;letter-spacing:.6px;background:rgba(255,255,255,.95);color:var(--ink)}
+.pd-chip .ico{width:15px;height:15px}
+.pd-body{padding:40px clamp(22px,3.5vw,44px) 32px;overflow:auto;display:flex;flex-direction:column;gap:18px}
+.pd-body .card-name{font-size:46px}
+.pd-meta{display:flex;flex-wrap:wrap;gap:8px}
+.pd-meta span{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;padding:6px 10px;background:var(--snow)}
+.pd-meta .ico{width:15px;height:15px}
+.pd-cols{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px}
+.pd h4{margin:0 0 10px;font-size:12px;letter-spacing:1.4px;text-transform:uppercase}
+.howto{margin:0;padding:0;list-style:none;counter-reset:s;display:grid;gap:10px;font-size:14.5px}
+.howto li{counter-increment:s;display:grid;grid-template-columns:24px minmax(0,1fr);gap:10px}
+.howto li::before{content:counter(s);width:24px;height:24px;border-radius:50%;background:var(--ink);color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.pd-foot{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px;padding-top:18px;border-top:1px solid var(--line);margin-top:auto}
+.pd-note{font-size:12.5px;color:var(--muted);margin:0}
+
+.vd{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);max-height:calc(100dvh - 32px)}
+.vd-player{position:relative;background:#050B08;aspect-ratio:16/10;max-width:100%;display:flex;align-items:center;justify-content:center;overflow:hidden;align-self:start}
+.vd-player img{position:absolute;height:120%;width:auto;filter:blur(18px) brightness(.5);transform:scale(1.2)}
+.vd-player .inner{position:relative;z-index:1;text-align:center;color:#fff;padding:24px;display:flex;flex-direction:column;align-items:center;gap:14px}
+.vd-player .playbtn{position:relative}
+.vd-player p{margin:0;font-size:14px;color:#D5DBD6;max-width:24em}
+.vd-body{padding:36px 32px 28px;overflow:auto;display:flex;flex-direction:column;gap:16px}
+.vd-body h3{margin:0;font-size:24px;line-height:1.2}
+
+.drawer{position:fixed;inset:0;z-index:80;display:flex;justify-content:flex-end;visibility:hidden}
+.drawer.open{visibility:visible}
+.drawer .scrim{position:absolute;inset:0;background:rgba(6,16,10,.6);opacity:0;transition:opacity .3s}
+.drawer.open .scrim{opacity:1}
+.drawer .panel{position:relative;width:min(440px,100%);height:100%;background:var(--white);display:flex;flex-direction:column;transform:translateX(100%);transition:transform .35s var(--ease);padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);padding-right:env(safe-area-inset-right,0px)}
+.drawer.open .panel{transform:none}
+.dr-head{display:flex;justify-content:space-between;align-items:center;padding:20px 24px;border-bottom:1px solid var(--line)}
+.dr-head h2{font-size:38px}
+.dr-head button{width:44px;height:44px;border:0;background:var(--snow);border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.dr-body{flex:1;overflow:auto;padding:20px 24px;display:flex;flex-direction:column;gap:20px}
+.line-item{display:grid;grid-template-columns:72px minmax(0,1fr) auto;gap:14px;align-items:center;padding-bottom:16px;border-bottom:1px solid var(--line)}
+.line-item .li-img{height:84px;display:flex;align-items:center;justify-content:center}
+.line-item .li-img img{max-height:84px;width:auto}
+.line-item h4{margin:0;font-family:var(--f-serif);font-size:20px}
+.line-item small{color:var(--muted);font-size:13px;display:block}
+.qty{display:inline-flex;align-items:center;border:1.5px solid var(--line);margin-top:8px}
+.qty button{width:34px;height:34px;border:0;background:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.qty button .ico{width:15px;height:15px}
+.qty output{min-width:28px;text-align:center;font-weight:600;font-variant-numeric:tabular-nums}
+.line-item .amt{font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap}
+.empty{text-align:center;color:var(--muted);padding:40px 0}
+.empty .ico{width:40px;height:40px;margin:0 auto 10px;color:#9aa19c}
+.opts{display:grid;gap:8px}
+.opt{display:flex;gap:12px;align-items:flex-start;padding:14px;border:1.5px solid var(--line);cursor:pointer}
+.opt:has(input:checked){border-color:var(--ink);background:var(--snow)}
+.opt input{margin-top:4px;accent-color:var(--red);width:18px;height:18px;flex:none}
+.opt b{display:block;font-size:15px}
+.opt span{font-size:13px;color:var(--muted)}
+.dr-foot{padding:18px 24px 22px;border-top:1px solid var(--line);display:grid;gap:12px}
+.total{display:flex;justify-content:space-between;align-items:baseline}
+.total b{font-family:var(--f-display);font-weight:400;font-size:38px;line-height:1;font-variant-numeric:tabular-nums}
+.done{text-align:center;padding:28px 6px;display:flex;flex-direction:column;align-items:center;gap:12px}
+.done .ico{width:52px;height:52px;color:#2E9B57}
+.done h3{margin:0;font-size:22px}
+.done p{margin:0;color:var(--muted)}
+
+.toast{position:fixed;z-index:90;left:50%;bottom:calc(env(safe-area-inset-bottom,0px) + 80px);transform:translate(-50%,20px);opacity:0;pointer-events:none;background:var(--ink);color:#fff;padding:13px 18px;font-size:14.5px;display:flex;align-items:center;gap:10px;box-shadow:0 14px 30px rgba(0,0,0,.3);transition:all .3s var(--ease);max-width:calc(100vw - 32px)}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.toast .ico{width:18px;height:18px;color:var(--gold-soft)}
+
+/* Reveal (content is visible by default; JS only offsets items below the fold) */
+.rv{transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.rv.pending{opacity:0;transform:translateY(24px)}
+
+/* ---------- Responsive ---------- */
+@media (max-width:1180px){
+  .mainnav{display:none}
+  .burger{display:inline-flex}
+  .mobile-menu{display:block;background:var(--white);border-top:1px solid var(--line);max-height:0;overflow:hidden;transition:max-height .35s var(--ease)}
+  .mobile-menu.open{max-height:80vh;overflow:auto}
+  .mobile-menu ul{list-style:none;margin:0;padding:8px 0 16px}
+  .mobile-menu a,.mobile-menu summary{display:flex;justify-content:space-between;align-items:center;min-height:48px;padding:0 var(--gutter-r) 0 var(--gutter-l);text-decoration:none;font-size:17px;letter-spacing:.4px;cursor:pointer;list-style:none}
+  .mobile-menu summary::-webkit-details-marker{display:none}
+  .mobile-menu details ul{padding:0 0 8px 16px}
+  .mobile-menu details a{font-size:15.5px;color:var(--muted);min-height:42px}
+  .mobile-menu a[aria-current]{color:var(--red)}
+}
+@media (max-width:1060px){
+  .subnav-tag{display:none}
+}
+@media (max-width:980px){
+  .hero .wrap{grid-template-columns:minmax(0,1fr);padding-block:48px 56px;gap:8px}
+  .stage{max-width:540px}
+  .sec-head{grid-template-columns:1fr}
+  .cards{grid-template-columns:1fr;gap:22px}
+  .card{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr)}
+  .card-stage{height:100%;min-height:400px}
+  .steps,.videos{grid-template-columns:1fr;gap:36px}
+  .steps::before{left:38px;right:auto;top:40px;bottom:40px;border-top:0;border-left:2px dashed var(--line)}
+  .steps::after{display:none}
+  .step{text-align:left;padding:0}
+  .step button{flex-direction:row;align-items:flex-start;gap:22px}
+  .step .stp{margin-inline:0}
+  .step .txt{display:flex;flex-direction:column;gap:8px}
+  .videos{grid-template-columns:repeat(3,minmax(260px,1fr));overflow-x:auto;scroll-snap-type:x mandatory;gap:16px;padding-bottom:12px;margin-right:calc(var(--gutter-r) * -1);padding-right:var(--gutter-r)}
+  .vcard{scroll-snap-align:start}
+  .qr-block,.why,.news .wrap,.final .wrap,.buy{grid-template-columns:minmax(0,1fr)}
+  .final-boxes{margin:0 auto}
+  .foot{grid-template-columns:1fr 1fr}
+  .foot > div:first-child{grid-column:1/-1}
+  .pd,.vd{display:block;overflow:auto}
+  .pd-img{min-height:0;padding:56px 24px 52px}
+  .pd-img img{max-height:270px}
+  .pd-img::after{bottom:30px}
+  .pd-body,.vd-body{overflow:visible}
+}
+@media (min-width:981px){.step .txt{display:contents}}
+@media (max-width:720px){
+  html{scroll-padding-top:120px}
+  .site-header .wrap,.scrolled .site-header .wrap{height:62px}
+  .brandlogos{gap:18px}
+  .brandlogos .kj,.scrolled .brandlogos .kj{height:38px}
+  .subnav .wrap{height:48px;gap:8px}
+  .subnav-links{overflow-x:auto;scrollbar-width:none;-webkit-mask-image:linear-gradient(90deg,#000 85%,transparent);mask-image:linear-gradient(90deg,#000 85%,transparent)}
+  .subnav-links::-webkit-scrollbar{display:none}
+  .subnav-links a{font-size:13px;padding:6px 10px}
+  .subnav .cta-sub{display:none}
+  .hero h1{font-size:clamp(58px,17vw,96px)}
+  .hero-ctas .btn{flex:1 1 220px}
+  .hero .wrap{padding-block:28px 48px}
+  .stage{order:-1;margin-bottom:4px}
+  .cd{gap:6px}
+  .card{display:flex}
+  .card-stage{height:300px;min-height:0}
+  .card-stage img{height:262px}
+  .card-body{padding:22px 20px 24px}
+  .card-actions{grid-template-columns:1fr}
+  .qr-block{padding:24px 20px 32px}
+  .qr-visual{display:flex;flex-direction:column;align-items:stretch;position:relative;min-height:0;padding:0;gap:20px}
+  .qr-float{position:static;order:-1}
+  .qr-arrow{display:none}
+  .phone{width:60%;max-width:230px;align-self:flex-end}
+  .qr-box{position:absolute;left:0;bottom:-8px;width:48%;max-width:200px;transform:rotate(-6deg);z-index:2}
+  .yt-sub{display:none}
+  .pd-cols{grid-template-columns:1fr}
+  .pd-body .card-name{font-size:38px}
+  .pickup{grid-template-columns:1fr}
+  .foot{grid-template-columns:1fr}
+  .inrow{flex-direction:column}
+  .inrow .btn{width:100%}
+  .mini-news form{flex-direction:column}
+  .mode{left:50%;transform:translateX(-50%);bottom:calc(env(safe-area-inset-bottom,0px) + 12px)}
+  .mode .lbl{display:none}
+  .toast{bottom:calc(env(safe-area-inset-bottom,0px) + 72px)}
+  footer{padding-bottom:64px}
+  dialog{max-width:100vw;max-height:100dvh;height:100dvh;margin:0;width:100vw}
+  .pd,.vd{max-height:100dvh;height:100%}
+}
+@media (max-width:420px){
+  .brandlogos{gap:14px}
+  .brandlogos .kj,.scrolled .brandlogos .kj{height:34px}
+  .cd b{font-size:30px}
+  .cd span{font-size:11px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .rv.pending{opacity:1;transform:none}
+}
+</style>
+
+</head>
+<body>
+<!-- Icon sprite (Lucide-style strokes) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+    <symbol id="i-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M5 12h14M12 5v14"/></symbol>
+    <symbol id="i-minus" viewBox="0 0 24 24"><path d="M5 12h14"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="M6 3l14 9-14 9V3z"/></symbol>
+    <symbol id="i-bag" viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></symbol>
+    <symbol id="i-qr" viewBox="0 0 24 24"><rect width="5" height="5" x="3" y="3" rx="1"/><rect width="5" height="5" x="16" y="3" rx="1"/><rect width="5" height="5" x="3" y="16" rx="1"/><path d="M21 16h-3a2 2 0 0 0-2 2v3M21 21v.01M12 7v3a2 2 0 0 1-2 2H7M3 12h.01M12 3h.01M12 16v.01M16 12h1M21 12v.01M12 21v-1"/></symbol>
+    <symbol id="i-utensils" viewBox="0 0 24 24"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2M7 2v20M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol>
+    <symbol id="i-store" viewBox="0 0 24 24"><path d="m2 7 4.41-4.41A2 2 0 0 1 7.83 2h8.34a2 2 0 0 1 1.42.59L22 7M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8M15 22v-4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4M2 7h20M22 7v3a2 2 0 0 1-2 2 2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 16 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 12 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 8 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 4 12a2 2 0 0 1-2-2V7"/></symbol>
+    <symbol id="i-package" viewBox="0 0 24 24"><path d="m7.5 4.27 9 5.15M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16ZM3.3 7l8.7 5 8.7-5M12 22V12"/></symbol>
+    <symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9M10.3 21a1.94 1.94 0 0 0 3.4 0"/></symbol>
+    <symbol id="i-chef" viewBox="0 0 24 24"><path d="M17 21a1 1 0 0 0 1-1v-5.35c0-.457.316-.844.727-1.041a4 4 0 0 0-2.134-7.589 5 5 0 0 0-9.186 0 4 4 0 0 0-2.134 7.588c.411.198.727.585.727 1.041V20a1 1 0 0 0 1 1ZM6 17h12"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></symbol>
+    <symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2zM22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></symbol>
+    <symbol id="i-snow" viewBox="0 0 24 24"><path d="M2 12h20M12 2v20M20 16l-4-4 4-4M4 8l4 4-4 4M16 4l-4 4-4-4M8 20l4-4 4 4"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
+    <symbol id="i-ext" viewBox="0 0 24 24"><path d="M15 3h6v6M10 14 21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></symbol>
+    <symbol id="i-flame" viewBox="0 0 24 24"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect width="18" height="11" x="3" y="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></symbol>
+    <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><rect width="14" height="20" x="5" y="2" rx="2"/><path d="M12 18h.01"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></symbol>
+    <symbol id="i-thumb" viewBox="0 0 24 24"><path d="M7 10v12M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2a3.13 3.13 0 0 1 3 3.88Z"/></symbol>
+    <symbol id="i-share" viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8M16 6l-4-4-4 4M12 2v13"/></symbol>
+    <symbol id="i-bookmark" viewBox="0 0 24 24"><path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"/></symbol>
+    <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 0C12.6 7 17 11.4 24 12 17 12.6 12.6 17 12 24 11.4 17 7 12.6 0 12 7 11.4 11.4 7 12 0Z"/></symbol>
+  </defs>
+</svg>
+
+<div class="top" id="top">
+  <!-- Header: same structure and nav as kn.is -->
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brandlogos" href="https://www.kn.is/" target="_blank" rel="noopener" aria-label="Kjarnafæði – forsíða kn.is">
+        <img class="kj" src="img/logo.webp" alt="Kjarnafæði" width="100" height="49">
+      </a>
+      <nav class="mainnav" aria-label="Aðalvalmynd">
+        <a href="https://www.kn.is/kjarnaf-ði" target="_blank" rel="noopener">Kjarnafæði</a>
+        <a href="https://www.kn.is/godi" target="_blank" rel="noopener">Goði</a>
+        <a href="https://www.kn.is/manadartilbod" target="_blank" rel="noopener">Mánaðartilboð</a>
+        <a href="https://www.kn.is/uppskriftir" target="_blank" rel="noopener">Uppskriftir</a>
+        <div class="dd">
+          <button type="button" aria-haspopup="true">Fyrirtækið <svg class="ico"><use href="#i-down"/></svg></button>
+          <ul class="dd-menu">
+            <li><a href="https://www.kn.is/fyrirtaekid" target="_blank" rel="noopener">Um okkur</a></li>
+            <li><a href="https://www.kn.is/starfsfolk" target="_blank" rel="noopener">Starfsfólk</a></li>
+            <li><a href="https://www.kn.is/stefnur" target="_blank" rel="noopener">Stefnur</a></li>
+            <li><a href="https://www.kn.is/starfsumsokn" target="_blank" rel="noopener">Starfsumsókn/Jobs</a></li>
+            <li><a href="https://www.kn.is/styrkir" target="_blank" rel="noopener">Styrkir</a></li>
+            <li><a href="https://www.kn.is/frettir" target="_blank" rel="noopener">Fréttir</a></li>
+          </ul>
+        </div>
+        <a href="#jolapakkar" aria-current="page">Jólapakkar</a>
+      </nav>
+      <button class="burger" type="button" id="burger" aria-expanded="false" aria-controls="mobileMenu" aria-label="Opna valmynd"><svg class="ico"><use href="#i-menu"/></svg></button>
+    </div>
+    <nav class="mobile-menu" id="mobileMenu" aria-label="Valmynd">
+      <ul>
+        <li><a href="https://www.kn.is/kjarnaf-ði" target="_blank" rel="noopener">Kjarnafæði</a></li>
+        <li><a href="https://www.kn.is/godi" target="_blank" rel="noopener">Goði</a></li>
+        <li><a href="https://www.kn.is/manadartilbod" target="_blank" rel="noopener">Mánaðartilboð</a></li>
+        <li><a href="https://www.kn.is/uppskriftir" target="_blank" rel="noopener">Uppskriftir</a></li>
+        <li><details><summary>Fyrirtækið <svg class="ico" style="width:16px;height:16px"><use href="#i-down"/></svg></summary>
+          <ul>
+            <li><a href="https://www.kn.is/fyrirtaekid" target="_blank" rel="noopener">Um okkur</a></li>
+            <li><a href="https://www.kn.is/starfsfolk" target="_blank" rel="noopener">Starfsfólk</a></li>
+            <li><a href="https://www.kn.is/stefnur" target="_blank" rel="noopener">Stefnur</a></li>
+            <li><a href="https://www.kn.is/starfsumsokn" target="_blank" rel="noopener">Starfsumsókn/Jobs</a></li>
+            <li><a href="https://www.kn.is/styrkir" target="_blank" rel="noopener">Styrkir</a></li>
+            <li><a href="https://www.kn.is/frettir" target="_blank" rel="noopener">Fréttir</a></li>
+          </ul></details></li>
+        <li><a href="#jolapakkar" aria-current="page" data-close>Jólapakkar</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Campaign sub-navigation -->
+  <div class="subnav">
+    <div class="wrap">
+      <span class="subnav-tag"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-spark"/></svg>Jólin 2026</span>
+      <nav class="subnav-links" aria-label="Jólaherferð">
+        <a href="#jolapakkar">Jólapakkarnir</a>
+        <a href="#svona">Svona virkar þetta</a>
+        <a href="#eldun">Eldunarleiðbeiningar</a>
+        <a href="#hvar">Hvar fæ ég pakkana?</a>
+      </nav>
+      <div class="subnav-actions">
+        <button class="cartbtn launch-only" type="button" id="cartBtn" aria-label="Opna körfu"><svg class="ico"><use href="#i-bag"/></svg><span class="cartcount" id="cartCount" data-n="0">0</span></button>
+        <a class="btn btn-red btn-sm cta-sub" href="#jolapakkar">Skoða jólapakkana</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<main>
+  <!-- HERO -->
+  <section class="hero" aria-labelledby="h-hero">
+    <div class="stars" id="heroStars" aria-hidden="true"></div>
+    <div class="wrap">
+      <div>
+        <span class="eyebrow pre-only"><i class="dot"></i>Væntanlegt 20. nóvember</span>
+        <span class="eyebrow launch-only"><i class="dot live"></i>Komið í sölu · Jólin 2026</span>
+        <p class="kicker">Einfaldaðu jólin með Kjarnafæði</p>
+        <h1 id="h-hero"><span class="l">Byrjaðu</span> <span class="l"><em>hefðina</em> með</span> <span class="l">Kjarnafæði</span></h1>
+        <p class="hero-sub">Fyrstu jólin í eigin eldhúsi? Gerðu þau einföld og gómsæt með jólapökkum frá Kjarnafæði.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-red pre-only" href="#jolapakkar">Skoða jólapakkana <svg class="ico arr"><use href="#i-arrow"/></svg></a>
+          <a class="btn btn-red launch-only" href="#jolapakkar">Kaupa jólapakka <svg class="ico arr"><use href="#i-arrow"/></svg></a>
+          <a class="btn btn-ghost-light" href="#svona">Sjá hvernig þetta virkar</a>
+        </div>
+        <div class="countdown pre-only" aria-live="off">
+          <p>Jólapakkarnir koma í sölu eftir</p>
+          <div class="cd" role="timer" aria-label="Tími þar til jólapakkarnir koma í sölu">
+            <div><b id="cdD">00</b><span>dagar</span></div>
+            <div><b id="cdH">00</b><span>klst.</span></div>
+            <div><b id="cdM">00</b><span>mín.</span></div>
+            <div><b id="cdS">00</b><span>sek.</span></div>
+          </div>
+        </div>
+        <div class="launch-strip launch-only">
+          <strong>Frá 15.000 kr.</strong>
+          <span>Þrjár stærðir, fyrir 3 til 7 manns · Pantað á netinu eða keypt í verslun</span>
+        </div>
+        <ul class="hero-meta">
+          <li><svg class="ico"><use href="#i-users"/></svg>Fyrir 3 til 7 manns</li>
+          <li><svg class="ico"><use href="#i-qr"/></svg>QR-kóði og eldunarmyndband</li>
+          <li><svg class="ico"><use href="#i-snow"/></svg>Þrír sígildir jólaréttir</li>
+        </ul>
+      </div>
+      <div class="stage" id="stage" aria-hidden="true">
+        <div class="halo"></div>
+        <div class="ring"></div>
+        <div class="tag"><span>Fyrir</span><b>3–7</b><span>manns</span></div>
+        <div class="pkg pkg-a"><div class="bob"><img src="img/stufur.webp" alt="" width="305" height="395"></div></div>
+        <div class="pkg pkg-b"><div class="bob"><img src="img/ketkrokur.webp" alt="" width="289" height="395" fetchpriority="high"></div></div>
+        <div class="pkg pkg-c"><div class="bob"><img src="img/leppaludi.webp" alt="" width="308" height="395"></div></div>
+        <div class="table-line"></div>
+        <p class="stage-note">… og með því</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PACKAGES -->
+  <section class="band band-snow" id="jolapakkar" aria-labelledby="h-pakkar">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <div>
+          <span class="eyebrow">Jólapakkarnir</span>
+          <h2 id="h-pakkar">Þrjár leiðir að gómsætum jólum</h2>
+        </div>
+        <p>Hver pakki inniheldur aðalréttinn, meðlætið og leiðbeiningar. Þrír jólasveinar, þrír sígildir réttir og þrjár stærðir, svo það er pakki fyrir hvert jólaborð.</p>
+      </div>
+      <div class="cards" id="cards"></div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER (pre-launch emphasis) -->
+  <section class="news pre-only" id="frettir" aria-labelledby="h-news">
+    <div class="stars" data-stars="10" aria-hidden="true"></div>
+    <div class="wrap">
+      <div class="rv">
+        <h2 id="h-news">Skráðu þig á póstlista Kjarnafæðis</h2>
+        <p>Fáðu uppskriftir, tilboð og fréttir frá Kjarnafæði beint í innhólfið. Þú færð líka að vita fyrst/ur þegar jólapakkarnir koma í sölu 20. nóvember.</p>
+      </div>
+      <div class="rv" id="newsWrap">
+        <form id="newsForm" novalidate>
+          <div class="field">
+            <label for="newsEmail">Netfang</label>
+            <div class="inrow">
+              <input id="newsEmail" name="email" type="email" inputmode="email" autocomplete="email" placeholder="nafn@netfang.is" aria-describedby="newsErr">
+              <button class="btn btn-red" type="submit"><svg class="ico"><use href="#i-mail"/></svg>Skrá mig</button>
+            </div>
+            <p class="err" id="newsErr" hidden>Sláðu inn gilt netfang, t.d. nafn@netfang.is.</p>
+          </div>
+          <fieldset class="fieldset">
+            <legend>Hvaða pakki heillar þig? <span style="font-weight:400;color:#9FB0A3">(valfrjálst)</span></legend>
+            <div class="chips" id="newsChips"></div>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="band band-white" id="svona" aria-labelledby="h-svona">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <div>
+          <span class="eyebrow">Svona virkar þetta</span>
+          <h2 id="h-svona">Jólamaturinn þarf ekki að vera flókinn</h2>
+        </div>
+        <p>Þú þarft enga reynslu. Þrjú skref og jólamaturinn er kominn á borðið.</p>
+      </div>
+      <ol class="steps rv" id="steps">
+        <li class="step on"><button type="button" aria-pressed="true">
+          <span class="step-ic"><svg class="ico"><use href="#i-package"/></svg><span class="step-n">1</span></span>
+          <span class="txt"><span class="sth">Veldu jólapakkann</span><span class="stp">Hamborgarhryggur, hangikjöt eða lambalæri? Veldu þann rétt sem passar ykkar jólum.</span><span class="hint"><svg class="ico"><use href="#i-check"/></svg>Pakkar fyrir 3 til 7 manns</span></span>
+        </button></li>
+        <li class="step"><button type="button" aria-pressed="false">
+          <span class="step-ic"><svg class="ico"><use href="#i-qr"/></svg><span class="step-n">2</span></span>
+          <span class="txt"><span class="sth">Fylgdu leiðbeiningunum</span><span class="stp">Skannaðu QR-kóðann á pakkanum eða horfðu á eldunarmyndbandið hér á síðunni.</span><span class="hint"><svg class="ico"><use href="#i-play"/></svg>Skref fyrir skref, í rauntíma</span></span>
+        </button></li>
+        <li class="step"><button type="button" aria-pressed="false">
+          <span class="step-ic"><svg class="ico"><use href="#i-heart"/></svg><span class="step-n">3</span></span>
+          <span class="txt"><span class="sth">Njóttu jólanna</span><span class="stp">Minna stress yfir pottunum og meiri tími með fólkinu sem skiptir þig máli.</span><span class="hint"><svg class="ico"><use href="#i-spark"/></svg>Gleðileg jól!</span></span>
+        </button></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- VIDEOS + QR -->
+  <section class="band band-pine" id="eldun" aria-labelledby="h-eldun">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <div>
+          <span class="eyebrow">Eldunarleiðbeiningar</span>
+          <h2 id="h-eldun">Allir geta eldað jólamat</h2>
+        </div>
+        <p>Stutt myndbönd leiða þig í gegnum hvert skref, frá pottinum að borðinu. <span class="pre-only">Myndböndin birtast hér 20. nóvember.</span><span class="launch-only">Veldu rétt og ýttu á spila.</span></p>
+      </div>
+      <div class="videos rv" id="videos"></div>
+
+      <div class="qr-block rv">
+        <div>
+          <span class="eyebrow" style="color:var(--gold)">QR-kóðinn á pakkanum</span>
+          <h3 style="margin-top:14px">Frá pakkanum beint í eldhúsið</h3>
+          <p>Á hverjum pakka er QR-kóði. Þú skannar hann með símanum og eldunarmyndbandið fyrir réttinn þinn opnast beint á YouTube-rás Kjarnafæðis. Engin leit og ekkert vesen.</p>
+          <ol class="qr-steps">
+            <li><span class="n">1</span>Beindu myndavélinni að kóðanum á pakkanum</li>
+            <li><span class="n">2</span>Eldunarmyndbandið opnast á YouTube</li>
+            <li><span class="n">3</span>Eldaðu með, skref fyrir skref</li>
+          </ol>
+        </div>
+        <div class="qr-visual" aria-hidden="true">
+          <div class="qr-box"><img src="img/ketkrokur.webp" alt="" width="289" height="395"><span class="qr-ring"></span></div>
+          <div class="qr-arrow"><svg viewBox="0 0 90 30"><path d="M2 20 C 30 0, 60 0, 84 14"/><path d="M76 6 L86 15 L74 20" style="stroke-dasharray:none"/></svg></div>
+          <div class="phone">
+            <div class="screen yt">
+              <div class="url"><svg class="ico"><use href="#i-lock"/></svg>youtube.com/watch?v=…</div>
+              <div class="yt-top"><span class="yt-logo"><svg viewBox="0 0 28 20"><rect width="28" height="20" rx="5" fill="#FF0000"/><path d="M11 5.5v9l8-4.5z" fill="#fff"/></svg><b>YouTube</b></span><svg class="ico"><use href="#i-search"/></svg></div>
+              <div class="vid"><img src="img/ketkrokur.webp" alt=""><span class="yt-play"><svg viewBox="0 0 28 20"><rect width="28" height="20" rx="5" fill="#FF0000"/><path d="M11 5.5v9l8-4.5z" fill="#fff"/></svg></span><span class="yt-time">7:42</span></div>
+              <div class="bar"><i></i></div>
+              <h5>Hvernig á að elda hangikjöt | Ketkrókur frá Kjarnafæði</h5>
+              <div class="yt-ch"><span class="yt-av"><img src="img/logo.webp" alt=""></span><span class="yt-name">Kjarnafæði</span><span class="yt-sub">Gerast áskrifandi</span></div>
+              <div class="yt-acts"><span><svg class="ico"><use href="#i-thumb"/></svg>Líkar við</span><span><svg class="ico"><use href="#i-share"/></svg>Deila</span><span><svg class="ico"><use href="#i-bookmark"/></svg>Vista</span></div>
+            </div>
+          </div>
+          <div class="qr-float"><div class="qr-code" id="qrCode"></div><span><b style="color:#fff">Prófaðu sjálf/ur</b><br>Skannaðu kóðann<br>með símanum</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY -->
+  <section class="band band-white" id="af-hverju" aria-labelledby="h-why">
+    <div class="wrap why">
+      <div class="rv">
+        <span class="eyebrow" style="color:var(--red);margin-bottom:14px">Af hverju Kjarnafæði?</span>
+        <h2 id="h-why">Þú sérð um jólastemninguna. <span class="r">Við hjálpum þér með matinn.</span></h2>
+        <p class="why-lead">Fyrstu jólin sem gestgjafi eiga að snúast um fólkið, ekki innkaupalistann. Við setjum saman pakkann svo þú getir einbeitt þér að hinu.</p>
+        <div class="why-img" aria-hidden="true">
+          <img src="img/stufur.webp" alt="" width="305" height="395">
+          <img src="img/ketkrokur.webp" alt="" width="289" height="395">
+          <img src="img/leppaludi.webp" alt="" width="308" height="395">
+        </div>
+      </div>
+      <ul class="points rv">
+        <li><span class="pic"><svg class="ico"><use href="#i-package"/></svg></span><div><h3>Einfaldara að undirbúa jólamatinn</h3><p>Aðalrétturinn og meðlætið í einum pakka. Þú þarft ekki að hlaupa á milli búða á Þorláksmessu.</p></div></li>
+        <li><span class="pic"><svg class="ico"><use href="#i-snow"/></svg></span><div><h3>Hefðbundnir íslenskir jólaréttir</h3><p>Hamborgarhryggur, hangikjöt og lambalæri. Réttirnir sem flest okkar ólust upp við.</p></div></li>
+        <li><span class="pic"><svg class="ico"><use href="#i-book"/></svg></span><div><h3>Skýrar eldunarleiðbeiningar</h3><p>Uppskriftarspjald í pakkanum og myndband sem fer yfir hvert skref.</p></div></li>
+        <li><span class="pic"><svg class="ico"><use href="#i-users"/></svg></span><div><h3>Stærð sem passar við borðið</h3><p>Stúfur er fyrir 3, Ketkrókur fyrir 4–5 og Leppalúði fyrir 6–7 manns.</p></div></li>
+        <li><span class="pic"><svg class="ico"><use href="#i-award"/></svg></span><div><h3>Gæðakjöt frá Kjarnafæði</h3><p>Íslenskt kjöt, unnið af kjötiðnaðarfólki Kjarnafæðis.</p></div></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- WHERE TO BUY -->
+  <section class="band band-snow" id="hvar" aria-labelledby="h-hvar">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <div>
+          <span class="eyebrow">Sala og afhending</span>
+          <h2 id="h-hvar">Hvar fæ ég jólapakkana?</h2>
+        </div>
+        <p>Tvær leiðir til að tryggja þér jólamatinn. <span class="pre-only">Sala hefst 20. nóvember.</span><span class="launch-only">Salan er hafin.</span></p>
+      </div>
+      <div class="buy rv">
+        <div class="buy-panel p1">
+          <div class="buy-head"><span class="buy-ic"><svg class="ico"><use href="#i-phone"/></svg></span><h3>Pantaðu á netinu</h3></div>
+          <p>Pantaðu jólapakkann í vefverslun Kjarnafæðis og sæktu hann þegar þér hentar.</p>
+          <ul class="feat">
+            <li><svg class="ico"><use href="#i-pin"/></svg>Sæktu í Pikkoló-box</li>
+            <li><svg class="ico"><use href="#i-calendar"/></svg>Veldu afhendingardag fyrir jól</li>
+            <li><svg class="ico"><use href="#i-check"/></svg>Greitt við pöntun, ekkert vesen við afhendingu</li>
+          </ul>
+          <button class="btn btn-ink pre-only" type="button" disabled><svg class="ico"><use href="#i-clock"/></svg>Opnar 20. nóvember</button>
+          <button class="btn btn-red launch-only" type="button" id="orderOnline">Panta á netinu <svg class="ico arr"><use href="#i-arrow"/></svg></button>
+        </div>
+        <div class="buy-panel">
+          <div class="buy-head"><span class="buy-ic"><svg class="ico"><use href="#i-store"/></svg></span><h3>Í verslunum</h3></div>
+          <p><span class="pre-only">Frá 20. nóvember fást jólapakkarnir líka í þessum verslunum um allt land.</span><span class="launch-only">Jólapakkarnir fást líka í þessum verslunum um allt land.</span></p>
+          <div class="regions" id="regions" role="group" aria-label="Veldu landshluta"></div>
+          <ul class="stores" id="stores" aria-live="polite"></ul>
+        </div>
+      </div>
+      <div class="pickup rv">
+        <div><svg class="ico"><use href="#i-calendar"/></svg><div><b>Afhending</b><span>Frá 20. nóvember, í Pikkoló-box eða hjá Kjarnafæði</span></div></div>
+        <div><svg class="ico"><use href="#i-clock"/></svg><div><b>Síðasti pöntunardagur</b><span>31. desember</span></div></div>
+        <div><svg class="ico"><use href="#i-snow"/></svg><div><b>Geymsla</b><span>Kælivara. Geymist í kæli fram að eldun.</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="final" aria-labelledby="h-final">
+    <div class="stars" data-stars="12" aria-hidden="true"></div>
+    <div class="wrap">
+      <div class="rv">
+        <span class="kick">Byrjaðu hefðina með Kjarnafæði</span>
+        <h2 id="h-final"><span>Þín jól.</span> <span>Þín hefð.</span></h2>
+        <p>Veldu jólapakkann sem hentar þér og gerðu fyrstu jólin í eigin eldhúsi eftirminnileg.</p>
+        <a class="btn btn-white" href="#jolapakkar">Velja jólapakka <svg class="ico arr"><use href="#i-arrow"/></svg></a>
+      </div>
+      <div class="final-boxes rv" aria-hidden="true">
+        <img src="img/stufur.webp" alt="" width="305" height="395">
+        <img src="img/ketkrokur.webp" alt="" width="289" height="395">
+        <img src="img/leppaludi.webp" alt="" width="308" height="395">
+      </div>
+    </div>
+  </section>
+
+  <!-- Compact newsletter (launch) -->
+  <section class="mini-news launch-only" aria-labelledby="h-mini">
+    <div class="wrap">
+      <div><h3 id="h-mini">Skráðu þig á póstlista Kjarnafæðis</h3><p>Uppskriftir, tilboð og fréttir af jólapökkunum beint í innhólfið.</p></div>
+      <form id="miniForm" novalidate>
+        <label class="sr" for="miniEmail">Netfang</label>
+        <input id="miniEmail" type="email" inputmode="email" autocomplete="email" placeholder="nafn@netfang.is">
+        <button class="btn btn-ink" type="submit">Skrá mig</button>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div>
+      <div class="logos"><img src="img/logo.webp" alt="Kjarnafæði" width="114" height="56"></div>
+      <address>Kjarnafæði<br>Svalbarðseyri, 606 Akureyri<br>Sími: 469 4500 · sala@kn.is</address>
+    </div>
+    <div>
+      <h4>Jólin 2026</h4>
+      <ul>
+        <li><a href="#jolapakkar">Jólapakkarnir</a></li>
+        <li><a href="#svona">Svona virkar þetta</a></li>
+        <li><a href="#eldun">Eldunarleiðbeiningar</a></li>
+        <li><a href="#hvar">Hvar fæ ég pakkana?</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Kjarnafæði</h4>
+      <ul>
+        <li><a href="https://www.kn.is/uppskriftir" target="_blank" rel="noopener">Uppskriftir</a></li>
+        <li><a href="https://www.kn.is/manadartilbod" target="_blank" rel="noopener">Mánaðartilboð</a></li>
+        <li><a href="https://www.kn.is/fyrirtaekid" target="_blank" rel="noopener">Um okkur</a></li>
+        <li><a href="https://www.kn.is/personuverndarstefna" target="_blank" rel="noopener">Persónuverndarstefna</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<!-- Presentation-only mode switch -->
+<div class="mode" role="group" aria-label="Kynningarhamur: veldu útgáfu herferðar">
+  <span class="lbl"><svg class="ico"><use href="#i-eye"/></svg>Kynning</span>
+  <button type="button" data-mode-btn="pre" aria-pressed="true">Fyrir 20. nóv.</button>
+  <button type="button" data-mode-btn="launch" aria-pressed="false">Frá 20. nóv.</button>
+</div>
+
+<!-- Package dialog -->
+<dialog id="pkgDlg" aria-labelledby="pkgDlgTitle">
+  <button class="dlg-close" type="button" data-close-dlg aria-label="Loka"><svg class="ico"><use href="#i-x"/></svg></button>
+  <div id="pkgDlgBody"></div>
+</dialog>
+
+<!-- Video dialog -->
+<dialog id="vidDlg" aria-labelledby="vidDlgTitle">
+  <button class="dlg-close" type="button" data-close-dlg aria-label="Loka"><svg class="ico"><use href="#i-x"/></svg></button>
+  <div id="vidDlgBody"></div>
+</dialog>
+
+<!-- Cart drawer -->
+<div class="drawer" id="drawer" aria-hidden="true">
+  <div class="scrim" data-close-drawer></div>
+  <aside class="panel" role="dialog" aria-modal="true" aria-labelledby="drTitle">
+    <div class="dr-head"><h2 id="drTitle">Karfan þín</h2><button type="button" data-close-drawer aria-label="Loka körfu"><svg class="ico"><use href="#i-x"/></svg></button></div>
+    <div class="dr-body" id="drBody"></div>
+    <div class="dr-foot" id="drFoot"></div>
+  </aside>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"><svg class="ico"><use href="#i-check"/></svg><span id="toastMsg"></span></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
+<script>
+/* =========================================================================
+   EFNI SEM AUÐVELT ER AÐ BREYTA
+   - LAUNCH_DATE: hvenær sjálfvirkt skiptist yfir í „komið í sölu“
+   - VIDEOS: settu YouTube-hlekki inn í youtube: '' fyrir hvern rétt
+   - PACKAGES: nöfn, lýsingar, innihald, verð og myndir
+   ========================================================================= */
+const LAUNCH_DATE = new Date('2026-11-20T00:00:00Z'); // Ísland = UTC
+const QR_TARGET = location.origin + location.pathname + '#eldun'; // QR-kóðinn opnar myndbandahlutann á þessari síðu
+
+const PACKAGES = [
+  {
+    id:'stufur', name:'Stúfur', type:'Hamborgarhryggspakki', dish:'hamborgarhrygg', serves:'3',
+    img:'img/stufur.webp', color:'#0F3A21', price:15000, time:'u.þ.b. 1¼ klst.',
+    desc:'Sígildur hamborgarhryggur með gljáa og öllu meðlætinu. Stúfur er minnstur jólasveinanna og pakkinn er sniðinn að litlu jólaborði, en bragðið er það ekki.',
+    contents:['Hamborgarhryggur, úrbeinaður (u.þ.b. 1,2 kg)','Púðursykurs- og sinnepsgljái','Kartöflur til brúnunar (1 kg)','Rauðkál (1 krukka)','Grænar baunir (1 dós)','Rauðvínssósa (400 ml)','Uppskriftarspjald með QR-kóða'],
+    steps:['Settu hrygginn í pott, láttu vatn fljóta yfir og láttu malla við vægan hita í u.þ.b. 40 mínútur.','Hitaðu ofninn í 200 °C og penslaðu hrygginn vel með gljáanum.','Bakaðu hrygginn í 15–20 mínútur þar til gljáinn er gullinn.','Brúnaðu kartöflurnar og hitaðu sósuna, rauðkálið og baunirnar á meðan.'],
+    youtube:''
+  },
+  {
+    id:'ketkrokur', name:'Ketkrókur', type:'Hangikjötspakki', dish:'hangikjöt', serves:'4–5',
+    img:'img/ketkrokur.webp', color:'#7A120C', price:20000, time:'u.þ.b. 1¾ klst.',
+    desc:'Hangikjöt, uppstúfur og laufabrauð, jólin eins og þau eiga að bragðast. Ketkrókur hefur alltaf vitað hvar besta kjötið er.',
+    contents:['Úrbeinað hangilæri (u.þ.b. 1,8 kg)','Kartöflur (1,5 kg)','Uppstúfur, tilbúinn til upphitunar (750 ml)','Grænar baunir (2 dósir)','Rauðkál (1 krukka)','Laufabrauð (10 kökur)','Uppskriftarspjald með QR-kóða'],
+    steps:['Settu kjötið í pott með köldu vatni og láttu suðuna koma hægt upp.','Láttu malla við vægan hita í u.þ.b. 1¼ klukkustund.','Slökktu undir og leyfðu kjötinu að jafna sig í soðinu.','Sjóddu kartöflurnar, hitaðu uppstúfinn og skerðu kjötið í sneiðar.'],
+    youtube:''
+  },
+  {
+    id:'leppaludi', name:'Leppalúði', type:'Lambalærispakki', dish:'lambalæri', serves:'6–7',
+    img:'img/leppaludi.webp', color:'#0F2B47', price:25000, time:'u.þ.b. 2 klst.',
+    desc:'Tvö íslensk lambalæri með kryddblöndu og ofnbökuðu meðlæti fyrir stærra jólaborð. Leppalúði nennir ekki að standa lengi yfir pottunum, og þú þarft þess ekki heldur.',
+    contents:['Tvö lambalæri (u.þ.b. 2 kg hvort)','Kryddblanda með rósmaríni og hvítlauk','Kartöflur (2 kg)','Rótargrænmeti: gulrætur, rófur og rauðlaukur','Villisveppasósa (1 l)','Rifsberjahlaup','Uppskriftarspjald með QR-kóða'],
+    steps:['Taktu lærin úr kæli klukkustund fyrir eldun og nuddaðu kryddblöndunni vel á þau.','Steiktu við 180 °C í u.þ.b. 1½ klst., eða þar til kjarnhiti nær 60–65 °C.','Settu kartöflurnar og grænmetið í ofninn síðasta klukkutímann.','Láttu lærin hvíla í 15 mínútur og hitaðu sósuna á meðan.'],
+    youtube:''
+  }
+];
+
+const REGIONS = {
+  'Höfuðborgarsvæðið': [
+    ['Krónan Granda','Fiskislóð 15–21, Reykjavík'],
+    ['Krónan Skeifunni','Skeifan 19, Reykjavík'],
+    ['Krónan Lindum','Skógarlind 2–4, Kópavogur'],
+    ['Bónus Skeifunni','Skeifan 11a, Reykjavík'],
+    ['Bónus Smáratorgi','Smáratorg, Kópavogur'],
+    ['Nettó Mjódd','Þönglabakki 1, Reykjavík'],
+    ['Nettó Hafnarfirði','Miðvangur 41, Hafnarfjörður']
+  ],
+  'Suðurnes': [
+    ['Krónan Fitjabraut','Fitjabraut 5, Reykjanesbær'],
+    ['Bónus Fitjum','Fitjar, Reykjanesbær'],
+    ['Nettó Krossmóa','Krossmói 4, Reykjanesbær']
+  ],
+  'Suðurland': [
+    ['Krónan Selfossi','Austurvegur 3, Selfoss'],
+    ['Bónus Selfossi','Larsenstræti, Selfoss'],
+    ['Nettó Selfossi','Austurvegur 42, Selfoss'],
+    ['Bónus Hveragerði','Sunnumörk, Hveragerði'],
+    ['Krónan Hvolsvelli','Austurvegur 4, Hvolsvöllur']
+  ],
+  'Vesturland': [
+    ['Krónan Akranesi','Dalbraut 1, Akranes'],
+    ['Bónus Akranesi','Smiðjuvellir, Akranes'],
+    ['Bónus Borgarnesi','Digranesgata, Borgarnes'],
+    ['Nettó Borgarnesi','Borgarbraut 58–60, Borgarnes']
+  ],
+  'Norðurland': [
+    ['Krónan Akureyri','Tryggvabraut 8, Akureyri'],
+    ['Bónus Langholti','Langholt, Akureyri'],
+    ['Bónus Norðurtorgi','Norðurtorg, Akureyri'],
+    ['Nettó Glerártorgi','Glerártorg, Akureyri'],
+    ['Nettó Húsavík','Garðarsbraut 64, Húsavík']
+  ],
+  'Austurland': [
+    ['Bónus Egilsstöðum','Miðvangur, Egilsstaðir'],
+    ['Nettó Egilsstöðum','Kaupvangur 6, Egilsstaðir'],
+    ['Krónan Reyðarfirði','Hafnargata 2, Reyðarfjörður']
+  ]
+};
+
+/* ========================================================================= */
+
+const $ = (s, r=document) => r.querySelector(s);
+const $$ = (s, r=document) => [...r.querySelectorAll(s)];
+const fmt = n => String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, '.') + ' kr.';
+const icon = (id, cls='ico') => `<svg class="${cls}"><use href="#i-${id}"/></svg>`;
+const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const store = {
+  get(k){ try{ return localStorage.getItem(k) }catch(e){ return null } },
+  set(k,v){ try{ localStorage.setItem(k,v) }catch(e){} }
+};
+
+/* ---- Mode (pre-launch / launch) ---- */
+let mode = store.get('kj-mode') || (Date.now() >= LAUNCH_DATE ? 'launch' : 'pre');
+function setMode(m, announce){
+  mode = m;
+  document.documentElement.dataset.mode = m;
+  $$('[data-mode-btn]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.modeBtn === m)));
+  store.set('kj-mode', m);
+  renderCards(); renderVideos(); renderStores();
+  if (m === 'pre') closeDrawer();
+  if (announce) toast(m === 'pre' ? 'Sýnir útgáfu fyrir 20. nóvember' : 'Sýnir útgáfu frá 20. nóvember: komið í sölu');
+}
+$$('[data-mode-btn]').forEach(b => b.addEventListener('click', () => setMode(b.dataset.modeBtn, true)));
+
+/* ---- Toast ---- */
+let toastT;
+function toast(msg){
+  $('#toastMsg').textContent = msg;
+  const t = $('#toast'); t.classList.add('show');
+  clearTimeout(toastT); toastT = setTimeout(() => t.classList.remove('show'), 2600);
+}
+
+/* ---- Stars ---- */
+function sparkles(el, n){
+  const frag = [];
+  for (let i=0;i<n;i++){
+    const s = 6 + Math.random()*14, x = Math.random()*100, y = Math.random()*100, d = (Math.random()*4).toFixed(2);
+    frag.push(`<svg viewBox="0 0 24 24" style="left:${x}%;top:${y}%;width:${s}px;height:${s}px;animation-delay:-${d}s"><use href="#i-spark"/></svg>`);
+  }
+  el.innerHTML = frag.join('');
+}
+sparkles($('#heroStars'), 18);
+$$('[data-stars]').forEach(el => sparkles(el, +el.dataset.stars));
+
+/* ---- Product cards ---- */
+function cardSparks(){
+  return [[12,22,10],[84,30,14],[20,62,8],[78,70,11],[52,14,7]]
+    .map(([x,y,s]) => `<svg class="sp" viewBox="0 0 24 24" style="left:${x}%;top:${y}%;width:${s}px;height:${s}px" aria-hidden="true"><use href="#i-spark"/></svg>`).join('');
+}
+function renderCards(){
+  const pre = mode === 'pre';
+  $('#cards').innerHTML = PACKAGES.map((p, i) => `
+    <article class="card rv" data-pkg="${p.id}" aria-labelledby="cn-${p.id}">
+      <button class="card-stage" type="button" data-open="${p.id}" style="background:${p.color}" aria-label="Nánar um ${p.name}, ${p.type}">
+        ${cardSparks()}
+        <span class="badge ${pre?'':'live'}">${pre ? icon('clock','ico" style="width:14px;height:14px') + 'Væntanlegt' : '<i></i>Komið í sölu'}</span>
+        <span class="for4">${icon('users')}Fyrir ${p.serves}</span>
+        <img src="${p.img}" alt="${p.name}, ${p.type.toLowerCase()} frá Kjarnafæði" loading="${i?'lazy':'eager'}" width="300" height="390">
+      </button>
+      <div class="card-body">
+        <p class="card-type">${p.type}</p>
+        <h3 class="card-name" id="cn-${p.id}">${p.name}</h3>
+        <p class="card-desc">${p.desc}</p>
+        <div class="incl">
+          <h4>Í pakkanum</h4>
+          <ul>${p.contents.slice(0,4).map(c => `<li>${icon('check')}<span>${c}</span></li>`).join('')}</ul>
+          <button class="more" type="button" data-open="${p.id}">+ ${p.contents.length-4} til viðbótar og eldunarleiðbeiningar</button>
+        </div>
+        <div class="price-row">
+          ${pre
+            ? `<span class="price-tbd">${icon('calendar')}Verð kynnt 20. nóvember</span>`
+            : `<span class="price">${fmt(p.price)}</span>`}
+        </div>
+        <div class="card-actions">
+          ${pre
+            ? `<a class="btn btn-red" href="#frettir">${icon('bell')}Láta mig vita</a>`
+            : `<button class="btn btn-red" type="button" data-add="${p.id}">${icon('bag')}Setja í körfu</button>`}
+          <button class="btn btn-line" type="button" data-open="${p.id}">Nánar</button>
+        </div>
+        <a class="vidlink" href="#eldun" data-video="${p.id}"><span class="pi">${icon('play')}</span><span>Hvernig á að elda ${p.dish}</span></a>
+      </div>
+    </article>`).join('');
+}
+
+/* ---- Package dialog ---- */
+function pdSparks(){
+  return [[10,18,14,0],[86,14,18,1.3],[16,70,10,2.1],[82,64,13,.7],[50,8,9,2.8],[26,40,7,1.6],[74,38,8,3.3]]
+    .map(([x,y,s,d]) => `<svg class="sp" viewBox="0 0 24 24" style="left:${x}%;top:${y}%;width:${s}px;height:${s}px;animation-delay:-${d}s" aria-hidden="true"><use href="#i-spark"/></svg>`).join('');
+}
+const pkgDlg = $('#pkgDlg');
+function openPkg(id){
+  const p = PACKAGES.find(x => x.id === id), pre = mode === 'pre';
+  $('#pkgDlgBody').innerHTML = `
+    <div class="pd">
+      <div class="pd-img" style="--c:${p.color}">
+        <span class="pd-ring" aria-hidden="true"></span>
+        <span class="pd-word" aria-hidden="true">${p.name}</span>
+        ${pdSparks()}
+        <span class="pd-chip">${icon('users')}Fyrir ${p.serves}</span>
+        <div class="pd-float"><img src="${p.img}" alt="${p.name}, ${p.type.toLowerCase()}"></div>
+      </div>
+      <div class="pd-body">
+        <div>
+          <p class="card-type">${p.type}</p>
+          <h2 class="card-name" id="pkgDlgTitle" style="font-family:var(--f-serif);text-transform:none">${p.name}</h2>
+        </div>
+        <div class="pd-meta">
+          <span>${icon('users')}Fyrir ${p.serves}</span>
+          <span>${icon('clock')}${p.time}</span>
+          <span>${icon('qr')}Myndband fylgir</span>
+          <span>${pre ? icon('calendar')+'Væntanlegt 20. nóv.' : icon('check')+'Komið í sölu'}</span>
+        </div>
+        <p class="card-desc" style="font-size:16px">${p.desc}</p>
+        <div class="pd-cols">
+          <div><h4>Í pakkanum</h4><div class="incl" style="border:0;padding:0"><ul>${p.contents.map(c => `<li>${icon('check')}<span>${c}</span></li>`).join('')}</ul></div></div>
+          <div><h4>Svona eldarðu ${p.dish}</h4><ol class="howto">${p.steps.map(s => `<li><span>${s}</span></li>`).join('')}</ol></div>
+        </div>
+        <div class="pd-foot">
+          <div>
+            ${pre ? `<span class="price-tbd">${icon('calendar')}Verð kynnt 20. nóvember</span>`
+                  : `<span class="price">${fmt(p.price)}</span>`}
+          </div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap">
+            <button class="btn btn-line" type="button" data-video="${p.id}">${icon('play')}Myndband</button>
+            ${pre ? `<a class="btn btn-red" href="#frettir" data-close-dlg>${icon('bell')}Láta mig vita</a>`
+                  : `<button class="btn btn-red" type="button" data-add="${p.id}" data-close-dlg>${icon('bag')}Setja í körfu</button>`}
+          </div>
+        </div>
+      </div>
+    </div>`;
+  if (!pkgDlg.open) pkgDlg.showModal();
+}
+
+/* ---- Videos ---- */
+function renderVideos(){
+  const pre = mode === 'pre';
+  $('#videos').innerHTML = PACKAGES.map(p => `
+    <button class="vcard" type="button" data-video="${p.id}" aria-label="Myndband: Hvernig á að elda ${p.dish}${pre?' (væntanlegt)':''}">
+      <div class="thumb" style="background:${p.color}">
+        <img src="${p.img}" alt="" loading="lazy">
+        <span class="playbtn">${icon('play')}</span>
+        ${pre ? '<span class="soon">Væntanlegt 20. nóv.</span>' : `<span class="dur">${icon('clock')}${p.time}</span>`}
+      </div>
+      <span class="vt">Hvernig á að elda ${p.dish}</span>
+      <span class="vs">${p.name} · ${p.steps.length} einföld skref</span>
+    </button>`).join('');
+}
+const vidDlg = $('#vidDlg');
+function openVideo(id){
+  const p = PACKAGES.find(x => x.id === id), pre = mode === 'pre', url = p.youtube;
+  let player;
+  if (pre){
+    player = `<span class="playbtn" style="opacity:.6">${icon('lock')}</span><p><strong style="color:#fff">Myndbandið birtist 20. nóvember.</strong><br>Þá verður líka hægt að skanna QR-kóðann á pakkanum.</p>`;
+  } else if (url){
+    player = `<a class="playbtn" href="${url}" target="_blank" rel="noopener" aria-label="Horfa á YouTube">${icon('play')}</a><p>Myndbandið opnast á YouTube.</p>`;
+  } else {
+    player = `<span class="playbtn">${icon('play')}</span><p>Myndband Kjarnafæðis fyrir ${p.name} opnast hér á YouTube.</p>`;
+  }
+  $('#vidDlgBody').innerHTML = `
+    <div class="vd">
+      <div class="vd-player"><img src="${p.img}" alt=""><div class="inner">${player}</div></div>
+      <div class="vd-body">
+        <p class="card-type">${p.name} · ${p.type}</p>
+        <h3 id="vidDlgTitle">Hvernig á að elda ${p.dish}</h3>
+        <div class="pd-meta"><span>${icon('clock')}${p.time}</span><span>${icon('users')}Fyrir ${p.serves}</span></div>
+        <h4 style="margin:6px 0 0;font-size:12px;letter-spacing:1.4px;text-transform:uppercase">Í myndbandinu</h4>
+        <ol class="howto">${p.steps.map(s => `<li><span>${s}</span></li>`).join('')}</ol>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:auto">
+          ${!pre && url ? `<a class="btn btn-red" href="${url}" target="_blank" rel="noopener">Opna á YouTube ${icon('ext')}</a>` : ''}
+          ${!pre && !url ? `<button class="btn btn-red" type="button" disabled>${icon('ext')}YouTube-hlekkur kemur hér</button>` : ''}
+          <button class="btn btn-line" type="button" data-open="${p.id}">Skoða pakkann</button>
+        </div>
+      </div>
+    </div>`;
+  if (pkgDlg.open) pkgDlg.close();
+  if (!vidDlg.open) vidDlg.showModal();
+}
+[pkgDlg, vidDlg].forEach(d => d.addEventListener('click', e => { if (e.target === d) d.close(); }));
+
+/* ---- Stores ---- */
+let region = Object.keys(REGIONS)[0];
+function renderStores(){
+  const pre = mode === 'pre';
+  $('#regions').innerHTML = Object.keys(REGIONS).map(r => `<button type="button" aria-pressed="${r===region}" data-region="${r}">${r}</button>`).join('');
+  $('#stores').innerHTML = REGIONS[region].map(([name, addr]) => `<li><b>${name}</b><span>${icon('pin')}${addr}</span></li>`).join('');
+}
+
+/* ---- Cart (presentation only) ---- */
+const cart = {};
+const drawer = $('#drawer');
+let delivery = 'pikkolo', ordered = false;
+function cartCount(){ return Object.values(cart).reduce((a,b)=>a+b,0) }
+function addToCart(id){
+  cart[id] = (cart[id]||0) + 1; ordered = false;
+  const n = cartCount(), c = $('#cartCount');
+  c.textContent = n; c.dataset.n = n;
+  const b = $('#cartBtn'); b.classList.remove('bump'); void b.offsetWidth; b.classList.add('bump');
+  const p = PACKAGES.find(x => x.id === id);
+  toast(`${p.name} er kominn í körfuna`);
+  renderCart();
+}
+function renderCart(){
+  const ids = Object.keys(cart).filter(k => cart[k] > 0);
+  const total = ids.reduce((s,id) => s + cart[id]*PACKAGES.find(p=>p.id===id).price, 0);
+  const c = $('#cartCount'); c.textContent = cartCount(); c.dataset.n = cartCount();
+  if (ordered){
+    $('#drBody').innerHTML = `<div class="done">${icon('check')}<h3>Pöntun staðfest, í kynningu</h3><p>Þetta er kynningarútgáfa. Engin pöntun var send og engin greiðsla fór fram.</p></div>`;
+    $('#drFoot').innerHTML = `<button class="btn btn-ink" type="button" id="drContinue">Halda áfram að skoða</button>`;
+    return;
+  }
+  if (!ids.length){
+    $('#drBody').innerHTML = `<div class="empty">${icon('bag')}<p>Karfan er tóm. Veldu jólapakka til að byrja.</p></div>`;
+    $('#drFoot').innerHTML = `<a class="btn btn-red" href="#jolapakkar" data-close-drawer>Skoða jólapakkana</a>`;
+    return;
+  }
+  $('#drBody').innerHTML = ids.map(id => {
+    const p = PACKAGES.find(x => x.id === id);
+    return `<div class="line-item">
+      <div class="li-img" style="background:${p.color}"><img src="${p.img}" alt=""></div>
+      <div><h4>${p.name}</h4><small>${p.type} · fyrir ${p.serves}</small>
+        <div class="qty"><button type="button" data-qty="${id}" data-d="-1" aria-label="Fækka">${icon('minus')}</button><output aria-label="Fjöldi">${cart[id]}</output><button type="button" data-qty="${id}" data-d="1" aria-label="Fjölga">${icon('plus')}</button></div>
+      </div>
+      <span class="amt">${fmt(cart[id]*p.price)}</span>
+    </div>`;
+  }).join('') + `
+    <fieldset class="fieldset">
+      <legend style="font-size:12px;letter-spacing:1.4px;text-transform:uppercase;font-weight:700;margin-bottom:10px">Afhending</legend>
+      <div class="opts">
+        <label class="opt"><input type="radio" name="dlv" value="pikkolo" ${delivery==='pikkolo'?'checked':''}><div><b>Sækja í Pikkoló-box</b><span>Þú velur Pikkoló-stöð þegar þú gengur frá pöntun</span></div></label>
+        <label class="opt"><input type="radio" name="dlv" value="pickup" ${delivery==='pickup'?'checked':''}><div><b>Sækja til Kjarnafæðis</b><span>Svalbarðseyri, 606 Akureyri</span></div></label>
+      </div>
+    </fieldset>`;
+  $('#drFoot').innerHTML = `
+    <div class="total"><span>Samtals</span><b>${fmt(total)}</b></div>
+    <button class="btn btn-red" type="button" id="checkout">${icon('lock')}Ganga frá pöntun</button>
+    <p class="pd-note" style="text-align:center">Kynningarútgáfa: engin greiðsla fer fram.</p>`;
+}
+let lastFocus;
+function openDrawer(){ lastFocus = document.activeElement; renderCart(); drawer.classList.add('open'); drawer.setAttribute('aria-hidden','false'); setTimeout(()=>$('.dr-head button', drawer).focus(), 50); }
+function closeDrawer(){ if (!drawer.classList.contains('open')) return; drawer.classList.remove('open'); drawer.setAttribute('aria-hidden','true'); if (lastFocus) lastFocus.focus(); }
+$('#cartBtn').addEventListener('click', openDrawer);
+$('#orderOnline').addEventListener('click', () => {
+  if (cartCount()) openDrawer();
+  else { location.hash = ''; $('#jolapakkar').scrollIntoView({behavior: reduced?'auto':'smooth'}); toast('Veldu jólapakka og settu hann í körfuna'); }
+});
+drawer.addEventListener('keydown', e => { if (e.key === 'Escape') closeDrawer(); });
+drawer.addEventListener('change', e => { if (e.target.name === 'dlv') delivery = e.target.value; });
+
+/* ---- Delegated clicks ---- */
+document.addEventListener('click', e => {
+  const t = e.target.closest('[data-open],[data-add],[data-video],[data-close-dlg],[data-close-drawer],[data-qty],#checkout,#drContinue,[data-region],[data-close]');
+  if (!t) return;
+  if (t.matches('[data-region]')){ region = t.dataset.region; renderStores(); return; }
+  if (t.matches('[data-close]')){ toggleMenu(false); return; }
+  if (t.matches('[data-qty]')){ const id=t.dataset.qty; cart[id]=Math.max(0,(cart[id]||0)+(+t.dataset.d)); renderCart(); return; }
+  if (t.id === 'checkout'){ ordered = true; Object.keys(cart).forEach(k => delete cart[k]); renderCart(); return; }
+  if (t.id === 'drContinue'){ ordered = false; closeDrawer(); renderCart(); return; }
+  if (t.matches('[data-add]')){ addToCart(t.dataset.add); if (t.matches('[data-close-dlg]')) pkgDlg.close(); return; }
+  if (t.matches('[data-video]')){ e.preventDefault(); openVideo(t.dataset.video); return; }
+  if (t.matches('[data-open]')){ if (vidDlg.open) vidDlg.close(); openPkg(t.dataset.open); return; }
+  if (t.matches('[data-close-dlg]')){ t.closest('dialog').close(); return; }
+  if (t.matches('[data-close-drawer]')){ closeDrawer(); return; }
+});
+
+/* ---- Newsletter (presentation only, nothing stored or sent) ---- */
+$('#newsChips').innerHTML = PACKAGES.map(p => `<button type="button" class="chip" aria-pressed="false">${icon('check')}${p.name}</button>`).join('');
+$('#newsChips').addEventListener('click', e => { const c = e.target.closest('.chip'); if (c) c.setAttribute('aria-pressed', String(c.getAttribute('aria-pressed') !== 'true')); });
+const emailOk = v => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim());
+$('#newsForm').addEventListener('submit', e => {
+  e.preventDefault();
+  const inp = $('#newsEmail');
+  if (!emailOk(inp.value)){ $('#newsErr').hidden = false; inp.setAttribute('aria-invalid','true'); inp.focus(); return; }
+  $('#newsErr').hidden = true; inp.removeAttribute('aria-invalid');
+  const picks = $$('.chip[aria-pressed="true"]').map(c => c.textContent.trim());
+  inp.value = '';
+  $('#newsWrap').innerHTML = `<div class="ok" role="status">${icon('check')}<div><h3>Takk! Þú ert komin/n á póstlistann.</h3><p>Þú færð uppskriftir og fréttir frá Kjarnafæði, og við látum þig vita um leið og jólapakkarnir koma í sölu 20. nóvember${picks.length ? `, sérstaklega ${picks.join(' og ')}` : ''}.</p><p class="formnote" style="margin-top:10px">Kynningarútgáfa: netfangið var hvorki vistað né sent.</p></div></div>`;
+});
+$('#miniForm').addEventListener('submit', e => {
+  e.preventDefault();
+  const inp = $('#miniEmail');
+  if (!emailOk(inp.value)){ inp.focus(); toast('Sláðu inn gilt netfang'); return; }
+  inp.value = ''; toast('Takk! Þú ert komin/n á póstlistann');
+});
+
+/* ---- Countdown ---- */
+const pad = n => String(n).padStart(2,'0');
+function tick(){
+  let ms = Math.max(0, LAUNCH_DATE - Date.now());
+  const d = Math.floor(ms/864e5); ms -= d*864e5;
+  const h = Math.floor(ms/36e5); ms -= h*36e5;
+  const m = Math.floor(ms/6e4); ms -= m*6e4;
+  const s = Math.floor(ms/1e3);
+  $('#cdD').textContent = pad(d); $('#cdH').textContent = pad(h); $('#cdM').textContent = pad(m); $('#cdS').textContent = pad(s);
+}
+tick(); setInterval(tick, 1000);
+
+/* ---- How-it-works sequence ---- */
+const steps = $$('#steps .step');
+let stepIdx = 0, stepAuto = !reduced, stepTimer;
+function setStep(i){
+  stepIdx = i;
+  steps.forEach((s,k) => { s.classList.toggle('on', k <= i); $('button', s).setAttribute('aria-pressed', String(k === i)); });
+  $('#steps').style.setProperty('--p', i);
+}
+steps.forEach((s,i) => $('button', s).addEventListener('click', () => { stepAuto = false; clearInterval(stepTimer); setStep(i); }));
+new IntersectionObserver(([en]) => {
+  clearInterval(stepTimer);
+  if (en.isIntersecting && stepAuto){ setStep(0); stepTimer = setInterval(() => setStep((stepIdx+1)%3), 2200); }
+}, {threshold:.5}).observe($('#steps'));
+
+/* ---- QR code ---- */
+(function(){
+  const host = $('#qrCode');
+  try{
+    const qr = qrcode(0,'M'); qr.addData(QR_TARGET); qr.make();
+    const n = qr.getModuleCount(); let d = '';
+    for (let r=0;r<n;r++) for (let c=0;c<n;c++) if (qr.isDark(r,c)) d += `M${c} ${r}h1v1h-1z`;
+    host.innerHTML = `<svg viewBox="0 0 ${n} ${n}" shape-rendering="crispEdges"><path d="${d}" fill="#0E0E0E"/></svg>`;
+  }catch(err){ host.innerHTML = `<svg class="ico" style="width:100%;height:100%;stroke:#0E0E0E"><use href="#i-qr"/></svg>`; }
+})();
+
+/* ---- Header: shrink on scroll, mobile menu, active section ---- */
+const topEl = $('#top');
+const onScroll = () => topEl.classList.toggle('scrolled', scrollY > 12);
+addEventListener('scroll', onScroll, {passive:true}); onScroll();
+function toggleMenu(open){
+  const m = $('#mobileMenu'), b = $('#burger');
+  open = open ?? !m.classList.contains('open');
+  m.classList.toggle('open', open); b.setAttribute('aria-expanded', String(open));
+  b.setAttribute('aria-label', open ? 'Loka valmynd' : 'Opna valmynd');
+  $('use', b).setAttribute('href', open ? '#i-x' : '#i-menu');
+}
+$('#burger').addEventListener('click', () => toggleMenu());
+const subLinks = $$('.subnav-links a');
+const io = new IntersectionObserver(entries => {
+  entries.forEach(en => { if (en.isIntersecting){ subLinks.forEach(a => a.classList.toggle('on', a.getAttribute('href') === '#'+en.target.id)); } });
+}, {rootMargin:'-45% 0px -50% 0px'});
+['jolapakkar','svona','eldun','hvar'].forEach(id => io.observe(document.getElementById(id)));
+
+/* ---- Hero parallax (desktop pointer only) ---- */
+const stage = $('#stage');
+if (!reduced && matchMedia('(pointer:fine)').matches){
+  $('.hero').addEventListener('pointermove', e => {
+    const r = stage.getBoundingClientRect();
+    const x = (e.clientX - (r.left + r.width/2)) / r.width, y = (e.clientY - (r.top + r.height/2)) / r.height;
+    stage.style.transform = `perspective(1200px) rotateY(${x*6}deg) rotateX(${-y*4}deg)`;
+  });
+  $('.hero').addEventListener('pointerleave', () => stage.style.transform = '');
+  stage.style.transition = 'transform .6s cubic-bezier(.2,.7,.2,1)';
+}
+
+/* ---- Boot ---- */
+setMode(mode, false);
+
+/* Reveal: only items starting below the fold are offset, then revealed on scroll */
+if (!reduced && 'IntersectionObserver' in window){
+  const rio = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting){ en.target.classList.remove('pending'); rio.unobserve(en.target); } }), {rootMargin:'0px 0px -8% 0px'});
+  requestAnimationFrame(() => $$('.rv').forEach(el => { if (el.getBoundingClientRect().top > innerHeight){ el.classList.add('pending'); rio.observe(el); } }));
+}
+</script>
+
+</body>
+</html>
